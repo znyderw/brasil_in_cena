@@ -380,13 +380,16 @@ function initListeningStations() {
     const blocks = document.querySelectorAll('.exhibition-item-block');
     if (!blocks.length) return;
 
+    const MAX_SAMPLE_DURATION = 30; // Limite rigoroso de 30 segundos por amostra
+
     const RHYTHM_CONFIGS = {
         'Carimbó': {
             id: 'carimbo',
             titulo: 'Batuque de Curimbó & Maracás',
             regiao: 'Norte · Marajó',
-            audio: 'assets/audio/curimbo_maracas.mp3',
+            audio: 'assets/audio/batuque_curimbo.mp3',
             tempo: 110,
+            volume: 0.72,
             pattern: 'carimbo'
         },
         'Frevo': {
@@ -395,6 +398,7 @@ function initListeningStations() {
             regiao: 'Nordeste · Recife',
             audio: 'assets/audio/caixa_frevo.mp3',
             tempo: 144,
+            volume: 0.65,
             pattern: 'frevo'
         },
         'Congada e Folia de Reis': {
@@ -403,6 +407,7 @@ function initListeningStations() {
             regiao: 'Sudeste · Minas',
             audio: 'assets/audio/caixa_de_congo.mp3',
             tempo: 92,
+            volume: 0.72,
             pattern: 'congada'
         },
         'Fandango Caiçara': {
@@ -411,6 +416,7 @@ function initListeningStations() {
             regiao: 'Sul/Sudeste · Litoral',
             audio: 'assets/audio/fandango_tamanco.mp3',
             tempo: 125,
+            volume: 0.80,
             pattern: 'fandango'
         },
         'Cavalhadas de Pirenópolis': {
@@ -419,6 +425,7 @@ function initListeningStations() {
             regiao: 'Centro-Oeste · Goiás',
             audio: 'assets/audio/fanfarra.mp3',
             tempo: 102,
+            volume: 0.62,
             pattern: 'cavalhadas'
         }
     };
@@ -572,6 +579,7 @@ function initListeningStations() {
             titulo: 'Cadência Regional',
             regiao: 'Brasil',
             tempo: 110,
+            volume: 0.70,
             pattern: 'carimbo'
         };
 
@@ -585,11 +593,14 @@ function initListeningStations() {
                 <div class="listening-info">
                     <span class="listening-label">MESA DE ESCUTA · ${config.regiao}</span>
                     <span class="listening-track-name">${config.titulo}</span>
-                    <div class="equalizer-bars">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
+                    <div class="listening-meta-row">
+                        <div class="equalizer-bars">
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                        </div>
+                        <span class="listening-timer">00:00 / 00:30</span>
                     </div>
                 </div>
             </div>
@@ -597,6 +608,9 @@ function initListeningStations() {
                 <span class="play-icon">▶</span>
                 <span class="play-text">Ouvir Toque</span>
             </button>
+            <div class="listening-progress-track">
+                <div class="listening-progress-bar"></div>
+            </div>
         `;
 
         block.appendChild(station);
@@ -604,21 +618,65 @@ function initListeningStations() {
         const btn = station.querySelector('.audio-play-toggle');
         const playIcon = station.querySelector('.play-icon');
         const playText = station.querySelector('.play-text');
+        const timerDisplay = station.querySelector('.listening-timer');
+        const progressBar = station.querySelector('.listening-progress-bar');
 
-        // Suporte duplo: Arquivo Real (MP3/WAV via data-audio ou config.audio) OU Sintetizador Web Audio
+        const baseVolume = config.volume !== undefined ? config.volume : 0.70;
         const audioSrc = block.dataset.audio || config.audio;
         let audioElement = null;
         let audioLoadFailed = false;
+        let progressInterval = null;
+        let synthStartTime = 0;
+
+        const formatTime = (secs) => {
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60);
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        };
+
+        const updateProgress = (currentSecs) => {
+            const clamped = Math.min(currentSecs, MAX_SAMPLE_DURATION);
+            const pct = Math.min(100, (clamped / MAX_SAMPLE_DURATION) * 100);
+            if (progressBar) progressBar.style.width = `${pct}%`;
+            if (timerDisplay) timerDisplay.textContent = `${formatTime(clamped)} / 00:30`;
+
+            // Fade-out suave nos últimos 2 segundos da amostra (28s a 30s)
+            if (audioElement && !audioLoadFailed) {
+                if (clamped >= 28) {
+                    const fadePct = Math.max(0, (MAX_SAMPLE_DURATION - clamped) / 2);
+                    audioElement.volume = baseVolume * fadePct;
+                } else {
+                    audioElement.volume = baseVolume;
+                }
+            }
+
+            // Atingiu o limite de 30 segundos
+            if (clamped >= MAX_SAMPLE_DURATION) {
+                stopPlayback();
+                if (activePlayer === stopPlayback) activePlayer = null;
+            }
+        };
 
         if (audioSrc) {
             audioElement = new Audio();
-            audioElement.loop = true;
+            audioElement.loop = false; // Respeita a limitação de 30s
             audioElement.preload = 'metadata';
+            audioElement.volume = baseVolume;
             audioElement.addEventListener('error', () => {
                 audioLoadFailed = true;
             });
+            audioElement.addEventListener('timeupdate', () => {
+                if (!audioElement.paused) {
+                    updateProgress(audioElement.currentTime);
+                }
+            });
+            audioElement.addEventListener('ended', () => {
+                stopPlayback();
+                if (activePlayer === stopPlayback) activePlayer = null;
+            });
             audioElement.src = audioSrc;
         }
+
         const synthPlayer = new RhythmPlayer(config.pattern, config.tempo);
 
         const isCurrentlyPlaying = () => {
@@ -627,27 +685,46 @@ function initListeningStations() {
         };
 
         const stopPlayback = () => {
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                progressInterval = null;
+            }
             if (audioElement) {
                 audioElement.pause();
                 audioElement.currentTime = 0;
+                audioElement.volume = baseVolume;
             }
             synthPlayer.stop();
             station.classList.remove('is-playing');
             playIcon.textContent = '▶';
             playText.textContent = 'Ouvir Toque';
+            if (progressBar) progressBar.style.width = '0%';
+            if (timerDisplay) timerDisplay.textContent = '00:00 / 00:30';
+        };
+
+        const startSynth = () => {
+            synthPlayer.start();
+            synthStartTime = Date.now();
+            if (progressInterval) clearInterval(progressInterval);
+            progressInterval = setInterval(() => {
+                const elapsed = (Date.now() - synthStartTime) / 1000;
+                updateProgress(elapsed);
+            }, 100);
         };
 
         const startPlayback = () => {
             if (audioElement && !audioLoadFailed) {
+                audioElement.volume = baseVolume;
+                audioElement.currentTime = 0;
                 const playPromise = audioElement.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(err => {
                         console.warn(`Arquivo de áudio '${audioSrc}' não pôde ser reproduzido, acionando sintetizador Web Audio:`, err);
-                        synthPlayer.start();
+                        startSynth();
                     });
                 }
             } else {
-                synthPlayer.start();
+                startSynth();
             }
             station.classList.add('is-playing');
             playIcon.textContent = '❚❚';
