@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil in Cena — Revista Cultural, Território e Memória</title>
+    <meta name="description"
+        content="Uma publicação cultural e cartográfica para descobrir o território, a gastronomia, os saberes ancestrais e as manifestações das cinco regiões brasileiras.">
+
+    <!-- Google Fonts: Newsreader (Serifa Expressiva) + Space Grotesk + Space Mono + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css?v=13.0">
+</head>
+
+<body>
+
+    <!-- Header Principal -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-logo-emblem">
+                    <img src="assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Revista Cultural</span>
+                </div>
+            </a>
+            <nav class="site-nav" id="site-nav">
+                <a href="#caderno-regioes" class="nav-link nav-catalog">Cadernos<sup class="nav-sup">05</sup></a>
+                <a href="#mapa" class="nav-link nav-catalog">Mapa<sup class="nav-sup">27</sup></a>
+                <a href="#culturas" class="nav-link nav-catalog">Manifestações<sup class="nav-sup">05</sup></a>
+                <a href="#gastronomia" class="nav-link nav-catalog">Cozinhas<sup class="nav-sup">08</sup></a>
+                <a href="noticias.html" class="nav-link nav-catalog">Notícias<sup class="nav-sup">09</sup></a>
+                <a href="#mapa" class="nav-link nav-atlas-pill" id="nav-atlas-btn">Explorar Território</a>
+            </nav>
+            <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Menu">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO EDITORIAL — ABERTURA PANORÂMICA COM IMAGEM, TIPOGRAFIA OFFSET E DEGRADÊ -->
+        <section class="home-hero hero-panoramic-cover">
+            <div class="hero-bg-overlay"></div>
+            <div class="container hero-content-relative">
+                
+                <!-- Marcas de corte gráfica editorial -->
+                <span class="crop-mark crop-tl">+</span>
+                <span class="crop-mark crop-tr">+</span>
+
+                <div class="hero-publication-bar">
+                    <span class="pub-mark">BRASIL IN CENA</span>
+                    <span class="pub-sep">/</span>
+                    <span class="pub-folio">REVISTA CULTURAL INDEPENDENTE</span>
+                    <span class="pub-sep">/</span>
+                    <span class="pub-issue">VOL. 02 · 2026</span>
+                </div>
+
+                <div class="home-hero-narrative-overlay">
+                    <span class="editorial-kicker hero-kicker-glow">Geografia & Memória</span>
+                    <h1 class="hero-editorial-title editorial-title-offset">
+                        Território, memória e as muitas formas de ser <em>Brasil</em>
+                    </h1>
+                    <p class="hero-editorial-lead">
+                        Uma investigação sensorial sobre o relevo, as bacias de água doce, as cozinhas de fogo ancestral e as manifestações que definem as cinco regiões do país.
+                    </p>
+
+                    <div class="hero-actions-row">
+                        <div class="hero-scroll-cue">
+                            <a href="#mapa" class="hero-scroll-link">
+                                <span class="cue-line"></span>
+                                <span class="cue-text">Explorar o Território</span>
+                                <span class="cue-arrow">↓</span>
+                            </a>
+                        </div>
+
+                        <div class="hero-expedition-badge">
+                            <span class="caption-num">01.0</span>
+                            <span class="caption-text">Bacia hidrográfica e floresta contínua · Território brasileiro</span>
+                            <span class="caption-coord">14°14′S · 51°55′W</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. EXPLORAÇÃO EDITORIAL DO TERRITÓRIO (MESA DE LUZ & D3 MAP) -->
+        <section id="mapa" class="territory-editorial-section">
+            <div class="container">
+                <!-- Cabeçalho Editorial com Régua de Escala -->
+                <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
+                    <div class="editorial-folio">
+                        <span>EXPLORAÇÃO EDITORIAL · VOL. 02</span>
+                        <div class="scale-ruler">
+                            <span>ESCALA 1:100.000</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>TERRITÓRIO & IDENTIDADE</span>
+                    </div>
+                    <span class="editorial-kicker">Cartografia Viva</span>
+                    <h2 class="section-main-title editorial-title-offset">O Desenho do <em>Território</em></h2>
+                    <p class="section-lead-text">
+                        Cinco macrorregiões com ecossistemas, fluxos de povoamento e matrizes expressivas distintas.
+                        Passe o cursor sobre os estados no mapa ou selecione uma região para desdobrar o arquivo de campo.
+                    </p>
+                </div>
+
+                <!-- Painel Split de Exploração Editorial -->
+                <div class="territory-split-layout">
+
+                    <!-- Lado Esquerdo: Mesa de Luz do Cartógrafo com Grid Milimetrado -->
+                    <div class="territory-map-wrapper">
+                        <!-- Marcas de registro editorial nos cantos -->
+                        <span class="crop-mark crop-tl">⊕</span>
+                        <span class="crop-mark crop-tr">⊕</span>
+                        <span class="crop-mark crop-bl">+</span>
+                        <span class="crop-mark crop-br">+</span>
+
+                        <div class="territory-map-header">
+                            <span>Vinte e Sete Estados · Prancha D3</span>
+                            <span id="territory-active-state-indicator">BRASIL · 27 ESTADOS</span>
+                        </div>
+
+                        <!-- Canvas do Mapa Vetorial D3 sobre Grid Milimetrado -->
+                        <div id="brazil-map-container" class="territory-map-canvas grid-cartographic">
+                            <div id="globe-container-3d" style="width: 100%; height: 100%;"></div>
+                            <div id="globe-tooltip" class="territory-tooltip-editorial"></div>
+                        </div>
+
+                        <!-- Chips de Navegação de Região (Estilo Catálogo Zine) -->
+                        <div class="territory-chips-nav">
+                            <button class="territory-chip-btn active" data-region="todas">00 Visão Geral</button>
+                            <button class="territory-chip-btn" data-region="norte">01 Norte</button>
+                            <button class="territory-chip-btn" data-region="nordeste">02 Nordeste</button>
+                            <button class="territory-chip-btn" data-region="centro_oeste">03 Centro-Oeste</button>
+                            <button class="territory-chip-btn" data-region="sudeste">04 Sudeste</button>
+                            <button class="territory-chip-btn" data-region="sul">05 Sul</button>
+                        </div>
+                    </div>
+
+                    <!-- Lado Direito: Ficha / Dossiê Editorial da Região Ativa -->
+                    <div class="territory-dossier-panel">
+                        <div class="territory-dossier-num" id="preview-kicker">CADERNO REGIONAL 01 / 05</div>
+                        <h3 class="territory-dossier-title editorial-serif" id="preview-name">Norte</h3>
+
+                        <div class="territory-dossier-meta" id="preview-meta">
+                            <span>7 Estados</span>
+                            <span>·</span>
+                            <span>Bioma Amazônico</span>
+                            <span>·</span>
+                            <span>3.853.676 km²</span>
+                        </div>
+
+                        <p class="territory-dossier-lead" id="preview-body">
+                            A bacia amazônica domina o território com a maior floresta tropical e bacia hidrográfica do
+                            planeta, onde os rios operam como estradas vivas e moldam os saberes ribeirinhos.
+                        </p>
+
+                        <!-- Pilares de Saberes e Práticas Vivas -->
+                        <div class="territory-dossier-pillars grid-cartographic">
+                            <div class="territory-pillar-row">
+                                <span class="territory-pillar-label">Manifestações em Foco:</span>
+                                <div class="territory-pillar-tags" id="preview-manifestacoes">
+                                    <span class="territory-tag-item">Carimbó</span>
+                                    <span class="territory-tag-item">Festival de Parintins</span>
+                                    <span class="territory-tag-item">Marabaixo</span>
+                                </div>
+                            </div>
+                            <div class="territory-pillar-row">
+                                <span class="territory-pillar-label">Cozinha & Saberes da Terra:</span>
+                                <div class="territory-pillar-tags" id="preview-sabores">
+                                    <span class="territory-tag-item">Tacacá</span>
+                                    <span class="territory-tag-item">Maniçoba</span>
+                                    <span class="territory-tag-item">Pirarucu de Casaca</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a id="preview-link" href="regioes/norte.html" class="territory-explore-link">
+                            Acessar Caderno Regional <span class="link-arrow">→</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CADERNOS REGIONAIS — SUMÁRIO COM ASSIMETRIA EDITORIAL ZINE -->
+        <section id="caderno-regioes" class="regional-chapters-section" style="padding: 5rem 0 6rem; background-color: var(--color-offwhite);">
+            <div class="container">
+
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>SUMÁRIO EDITORIAL · AS CINCO GEOGRAFIAS</span>
+                        <span>5 CADERNOS · 27 ESTADOS</span>
+                    </div>
+                    <span class="editorial-kicker">Capas de Zine</span>
+                    <h2 class="section-main-title editorial-title-offset">Cinco Territórios, <em>Cinco Pulsações</em></h2>
+                    <p class="section-lead-text">
+                        Cada região tratada como uma publicação independente com suas próprias matrizes sonoras, biomas e técnicas de sobrevivência.
+                    </p>
+                </div>
+
+                <!-- Grid Assimétrico de Cadernos Regionais -->
+                <div class="chapters-catalog-asymmetric">
+
+                    <!-- 01 NORTE: Bloco Amplo Horizontal (12 colunas) -->
+                    <article class="asym-entry asym-col-wide" data-region="norte">
+                        <div class="asym-body grid-cartographic">
+                            <div class="asym-top-bar">
+                                <span class="asym-num">CADERNO 01</span>
+                                <span class="asym-coord">02°26′S · 54°42′W · AMAZÔNIA</span>
+                            </div>
+                            <h3 class="asym-title">Norte — O Império das Águas e da Floresta</h3>
+                            <p class="asym-desc">
+                                Onde os rios operam como autoestradas vivas e a floresta dita os ciclos do dia. Das festas de boi em Parintins aos rituais do tacacá na cuia, os saberes ribeirinhos moldam uma civilização distinta de farinha d'água e tucupi.
+                            </p>
+                            <div class="asym-meta-tags">
+                                <span class="asym-tag">3.853.676 km²</span>
+                                <span class="asym-tag">7 Estados</span>
+                                <span class="asym-tag">Carimbó</span>
+                                <span class="asym-tag">Tacacá</span>
+                                <span class="asym-tag">Boi-Bumbá</span>
+                            </div>
+                            <a href="regioes/norte.html" class="asym-footer-link">Abrir Caderno Amazônico <span>→</span></a>
+                        </div>
+                        <img class="asym-thumb" src="assets/img/norte/hero_norte_amazo.webp" alt="Amazônia" loading="lazy">
+                    </article>
+
+                    <!-- 02 NORDESTE: Bloco Vertical Vibrante (7 colunas) -->
+                    <article class="asym-entry asym-col-7" data-region="nordeste">
+                        <div class="asym-body">
+                            <div class="asym-top-bar">
+                                <span class="asym-num">CADERNO 02</span>
+                                <span class="asym-coord">08°03′S · 34°52′W · SERTÃO & MAR</span>
+                            </div>
+                            <h3 class="asym-title">Nordeste — Mar, Sertão e Resistência Sonora</h3>
+                            <p class="asym-desc">
+                                O berço da formação brasileira entre as dunas atlânticas e a Caatinga semiárida. Da literatura de cordel ao frevo acrobático, o Nordeste transformou escassez em poesia, acarajé no dendê e batuque coletivo.
+                            </p>
+                            <div class="asym-meta-tags">
+                                <span class="asym-tag">1.554.291 km²</span>
+                                <span class="asym-tag">9 Estados</span>
+                                <span class="asym-tag">Frevo</span>
+                                <span class="asym-tag">Maracatu</span>
+                                <span class="asym-tag">Acarajé</span>
+                                <span class="asym-tag">Cordel</span>
+                            </div>
+                            <a href="regioes/nordeste.html" class="asym-footer-link">Abrir Caderno Nordeste <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- 03 CENTRO-OESTE: Bloco Horizontal Cerrado (5 colunas) -->
+                    <article class="asym-entry asym-col-5" data-region="centro-oeste">
+                        <div class="asym-body grid-cartographic">
+                            <div class="asym-top-bar">
+                                <span class="asym-num">CADERNO 03</span>
+                                <span class="asym-coord">15°47′S · 47°52′W · PLANALTO</span>
+                            </div>
+                            <h3 class="asym-title">Centro-Oeste — Planalto, Pantanal & Viola</h3>
+                            <p class="asym-desc">
+                                O coração geográfico do país, berço das águas que alimentam o continente. Entre as colinas de Pirenópolis e os ritmos da viola de cocho pantaneira.
+                            </p>
+                            <div class="asym-meta-tags">
+                                <span class="asym-tag">1.606.371 km²</span>
+                                <span class="asym-tag">Cavalhadas</span>
+                                <span class="asym-tag">Pequi</span>
+                                <span class="asym-tag">Viola de Cocho</span>
+                            </div>
+                            <a href="regioes/centro-oeste.html" class="asym-footer-link">Abrir Caderno Centro-Oeste <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- 04 SUDESTE: Bloco Barroco & Metrópole (6 colunas) -->
+                    <article class="asym-entry asym-col-6" data-region="sudeste">
+                        <div class="asym-body">
+                            <div class="asym-top-bar">
+                                <span class="asym-num">CADERNO 04</span>
+                                <span class="asym-coord">20°23′S · 43°50′W · MONTANHA & COSTA</span>
+                            </div>
+                            <h3 class="asym-title">Sudeste — Barroco do Ouro e Vertigem Urbana</h3>
+                            <p class="asym-desc">
+                                Das serras de mineração às maiores densidades artísticas do país. Congadas mineiras, rodas de samba cariocas e a memória do café com queijo curado.
+                            </p>
+                            <div class="asym-meta-tags">
+                                <span class="asym-tag">924.511 km²</span>
+                                <span class="asym-tag">4 Estados</span>
+                                <span class="asym-tag">Congada</span>
+                                <span class="asym-tag">Pão de Queijo</span>
+                                <span class="asym-tag">Samba</span>
+                            </div>
+                            <a href="regioes/sudeste.html" class="asym-footer-link">Abrir Caderno Sudeste <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- 05 SUL: Bloco Pampa & Vento Minuano (6 colunas) -->
+                    <article class="asym-entry asym-col-6" data-region="sul">
+                        <div class="asym-body grid-cartographic">
+                            <div class="asym-top-bar">
+                                <span class="asym-num">CADERNO 05</span>
+                                <span class="asym-coord">29°45′S · 53°48′W · PAMPA & PINHAIS</span>
+                            </div>
+                            <h3 class="asym-title">Sul — Campos de Vento, Geada e Tropeiros</h3>
+                            <p class="asym-desc">
+                                Planaltos de altitude sob as araucárias, tradição do chimarrão campeiro, o rufar dos tamancos no fandango caiçara e a rota secular das tropas de gado.
+                            </p>
+                            <div class="asym-meta-tags">
+                                <span class="asym-tag">576.774 km²</span>
+                                <span class="asym-tag">3 Estados</span>
+                                <span class="asym-tag">Fandango</span>
+                                <span class="asym-tag">Chimarrão</span>
+                                <span class="asym-tag">Carreteiro</span>
+                            </div>
+                            <a href="regioes/sul.html" class="asym-footer-link">Abrir Caderno Sul <span>→</span></a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Transição Topográfica SVG: Claro para Escuro -->
+        <div class="topo-divider-transition topo-divider-to-dark" aria-hidden="true">
+            <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+                <path d="M0,0 C150,38 350,48 500,24 C650,0 850,36 1050,18 C1120,10 1170,4 1200,0 L1200,48 L0,48 Z"></path>
+            </svg>
+        </div>
+
+        <!-- 4. CULTURAS (NARRATIVA STICKY COM MESA DE ESCUTA / SINTETIZADOR TÁTIL) -->
+        <section id="culturas" class="sticky-exhibition-section">
+            <div class="sticky-exhibition-layout">
+                <div class="exhibition-media-sticky">
+                    <img id="exhibition-active-img" class="exhibition-image" src="assets/img/norte/Carimbo.jpg"
+                        alt="Expressão Cultural do Brasil">
+                    <div class="exhibition-media-hud">
+                        <span class="exhibition-hud-tag">ENSAIO VISUAL · MANIFESTAÇÕES</span>
+                        <span class="exhibition-hud-title" id="cultura-home-hud-title">Carimbó</span>
+                    </div>
+                </div>
+
+                <div class="exhibition-scroll-container">
+                    <div style="margin-bottom: 2rem;">
+                        <span class="editorial-kicker" style="color: var(--color-accent);">ENSAIO VISUAL E SONORO</span>
+                        <h2 class="editorial-serif editorial-title-offset"
+                            style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-top: 0.5rem; color: var(--color-offwhite);">
+                            Manifestações <em>Vivas</em></h2>
+                        <p
+                            style="color: var(--text-muted-light); font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.6;">
+                            Como o território molda o ritmo, onde a manifestação foi forjada e a mesa de escuta com toques percussivos reais e sintetizados.
+                        </p>
+
+                        <!-- Barra de Seleção Rápida por Título -->
+                        <div class="exhibition-title-nav" aria-label="Navegar por manifestações culturais">
+                            <button class="exhibition-nav-btn active" type="button"><span class="exhibition-nav-num">01</span> Carimbó</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">02</span> Frevo</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">03</span> Congada</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">04</span> Fandango Caiçara</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">05</span> Cavalhadas</button>
+                        </div>
+                    </div>
+
+                    <!-- 01: CARIMBÓ -->
+                    <div class="exhibition-item-block active" data-img="assets/img/norte/Carimbo.jpg" data-audio="assets/audio/curimbo_maracas.mp3">
+                        <div class="exhibition-number"><span>ENSAIO 01 / 05</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title editorial-serif">Carimbó <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">PARÁ · ILHA DO MARAJÓ E LITORAL</div>
+                        <p class="exhibition-item-text">
+                            Dança de roda e ritmo percussivo que expressa o trabalho braçal da pesca e a relação íntima com a terra e as marés paraenses.
+                        </p>
+                        <div
+                            style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted-light); border-top: 1px solid rgba(247,244,239,0.12); padding-top: 0.85rem;">
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Território
+                                    & Origem:</strong> Marapanim, Salgado e Marajó. Nascido do trabalho braçal no
+                                litoral e foz dos rios amazônicos.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Matriz
+                                    Cultural:</strong> Encontro dos tambores bantos africanos com as flautas e estalos
+                                indígenas e a marcação de palmas ibéricas.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Hoje:</strong>
+                                Registrado como Patrimônio Cultural Imaterial pelo IPHAN em 2014.</div>
+                        </div>
+                    </div>
+
+                    <!-- 02: FREVO -->
+                    <div class="exhibition-item-block" data-img="assets/img/nordeste/frevo1.jpg" data-audio="assets/audio/caixa_frevo.mp3">
+                        <div class="exhibition-number"><span>ENSAIO 02 / 05</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title editorial-serif">Frevo <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">PERNAMBUCO · RECIFE E OLINDA</div>
+                        <p class="exhibition-item-text">
+                            Uma explosão de metais e passos rápidos que nasce do verbo "ferver". Uma das manifestações
+                            coreográficas e sonoras mais velozes do planeta.
+                        </p>
+                        <div
+                            style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted-light); border-top: 1px solid rgba(247,244,239,0.12); padding-top: 0.85rem;">
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Território
+                                    & Origem:</strong> Ruas de paralelepípedo do Recife e ladeiras íngremes de Olinda no final do século XIX.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Matriz
+                                    Cultural:</strong> Disputa entre bandas militares rivais protegidas por capoeiristas da periferia.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Hoje:</strong>
+                                Patrimônio Imaterial da Humanidade pela UNESCO.</div>
+                        </div>
+                    </div>
+
+                    <!-- 03: CONGADA -->
+                    <div class="exhibition-item-block" data-img="assets/img/sudeste/congada.jpg" data-audio="assets/audio/caixa_de_congo.mp3">
+                        <div class="exhibition-number"><span>ENSAIO 03 / 05</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title editorial-serif">Congada e Folia de Reis <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">MINAS GERAIS E VALE DO PARAÍBA · REGIÃO SUDESTE</div>
+                        <p class="exhibition-item-text">
+                            Auto dramatizado de profunda devoção afro-católica, que reencena a corte dos Reis do Congo
+                            com caixas de madeira, fardas bordadas e passos cadenciados.
+                        </p>
+                        <div
+                            style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted-light); border-top: 1px solid rgba(247,244,239,0.12); padding-top: 0.85rem;">
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Território
+                                    & Origem:</strong> Cidades históricas de mineração no século XVIII (Ouro Preto, Serro, Diamantina).</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Matriz
+                                    Cultural:</strong> Resistência das irmandades religiosas de negros escravizados que coroavam reis e rainhas negros.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Hoje:</strong>
+                                Mantida por ternos tradicionais familiares de Moçambique e Catupé.</div>
+                        </div>
+                    </div>
+
+                    <!-- 04: FANDANGO CAIÇARA -->
+                    <div class="exhibition-item-block" data-img="assets/img/sudeste/fandango_caicara.jpg" data-audio="assets/audio/fandango_tamanco.mp3">
+                        <div class="exhibition-number"><span>ENSAIO 04 / 05</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title editorial-serif">Fandango Caiçara <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">PARANÁ E SÃO PAULO · COSTA SUL E SUDESTE</div>
+                        <p class="exhibition-item-text">
+                            O som da rabeca escavada artesanalmente e o rufar seco dos tamancos de madeira batidos
+                            contra o soalho nas vilas pesqueiras do litoral da Mata Atlântica.
+                        </p>
+                        <div
+                            style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted-light); border-top: 1px solid rgba(247,244,239,0.12); padding-top: 0.85rem;">
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Território
+                                    & Origem:</strong> Vilarejos de Iguape, Cananéia, Ilha do Cardoso e Paranaguá.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Matriz
+                                    Cultural:</strong> Costumes de mutirão comunitário ("puxirão") da roça de mandioca.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Hoje:</strong>
+                                Patrimônio Cultural Imaterial do Brasil (IPHAN).</div>
+                        </div>
+                    </div>
+
+                    <!-- 05: CAVALHADAS -->
+                    <div class="exhibition-item-block" data-img="assets/img/centro_oeste/Cavalhadas.jpg" data-audio="assets/audio/fanfarra.mp3">
+                        <div class="exhibition-number"><span>ENSAIO 05 / 05</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title editorial-serif">Cavalhadas de Pirenópolis <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">GOIÁS · REGIÃO CENTRO-OESTE</div>
+                        <p class="exhibition-item-text">
+                            Dramatização equestre épica que transforma as colinas do Cerrado em uma arena secular de
+                            cores, cavalos ornados e máscaras de papel machê.
+                        </p>
+                        <div
+                            style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted-light); border-top: 1px solid rgba(247,244,239,0.12); padding-top: 0.85rem;">
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Território
+                                    & Origem:</strong> Pirenópolis e Cidade de Goiás, introduzida em 1826.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Matriz
+                                    Cultural:</strong> Tradição ibérica dos romances de cavalaria de Carlos Magno adaptada ao Cerrado.</div>
+                            <div><strong
+                                    style="color: var(--color-accent); font-family: var(--font-heading); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.08em;">Hoje:</strong>
+                                Ponto alto da secular Festa do Divino Espírito Santo de Goiás.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transição Topográfica SVG: Escuro para Claro -->
+        <div class="topo-divider-transition topo-divider-to-light" aria-hidden="true">
+            <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+                <path d="M0,0 C180,36 360,12 540,32 C720,48 900,16 1080,36 C1140,42 1180,36 1200,32 L1200,48 L0,48 Z"></path>
+            </svg>
+        </div>
+
+        <!-- 5. GASTRONOMIA — ALMANAQUE DE FOLHEAR (3D CARD FLIP EM FICHA MILIMETRADA) -->
+        <section id="gastronomia" class="gastronomy-section-redesign" style="padding: 5rem 0 6rem; background-color: #FAF7F2; border-top: 1px solid rgba(6,53,47,0.08);">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>SABORES E TERRITÓRIO</span>
+                        <span>ALMANAQUE DE CAMPO</span>
+                    </div>
+                    <span class="editorial-kicker">Cozinhas Tradicionais</span>
+                    <h2 class="section-main-title editorial-title-offset">A Terra que se <em>Come</em></h2>
+                    <p class="section-lead-text">
+                        A gastronomia brasileira nasce da fermentação da mandioca-brava, dos óleos vegetais de matriz africana e das técnicas de fogo e salga tropeiras. Clique em qualquer card para desdobrar a ficha técnica de receita e notas etnográficas.
+                    </p>
+                </div>
+
+                <!-- Barra de Abas / Filtros por Região -->
+                <div class="gastro-filter-bar">
+                    <button class="gastro-filter-chip active" data-filter="todas">Todas as Cozinhas <span
+                            class="gastro-count">08</span></button>
+                    <button class="gastro-filter-chip" data-filter="Norte">01 · Norte <span
+                            class="gastro-count">02</span></button>
+                    <button class="gastro-filter-chip" data-filter="Nordeste">02 · Nordeste <span
+                            class="gastro-count">02</span></button>
+                    <button class="gastro-filter-chip" data-filter="Centro-Oeste">03 · Centro-Oeste <span
+                            class="gastro-count">01</span></button>
+                    <button class="gastro-filter-chip" data-filter="Sudeste">04 · Sudeste <span
+                            class="gastro-count">02</span></button>
+                    <button class="gastro-filter-chip" data-filter="Sul">05 · Sul <span
+                            class="gastro-count">01</span></button>
+                </div>
+
+                <!-- Grid de Pratos com Fichas 3D Flip Card -->
+                <div id="gastronomy-grid" class="gastronomy-dossier-grid">
+                    <!-- Preenchido dinamicamente via JavaScript com flip cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PANORAMA CONTEMPORÂNEO (HISTÓRIA EM MOVIMENTO) -->
+        <section id="panorama" class="panorama-home-section" style="padding: 5rem 0 6rem; background-color: var(--color-offwhite);">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>ATUALIDADES E PATRIMÔNIO</span>
+                        <span>BRASIL HOJE</span>
+                    </div>
+                    <span class="editorial-kicker">Panorama Contemporâneo</span>
+                    <h2 class="section-main-title editorial-title-offset">A Cultura Não Está <em>Parada</em></h2>
+                    <p class="section-lead-text">
+                        O Brasil in Cena documenta como saberes ancestrais dialogam com preservação ambiental, juventude e a vida urbana hoje.
+                    </p>
+                </div>
+
+                <div class="panorama-home-grid">
+                    <!-- Artigo Destaque Principal -->
+                    <article class="home-dispatch-featured" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile);">
+                        <img src="assets/img/norte/ribeirinhos_card.webp" alt="Comunidades Ribeirinhas e Território"
+                            class="home-dispatch-img"
+                            onerror="this.src='https://images.unsplash.com/photo-1581452684877-6262b9a7b93a?q=80&w=1200&auto=format&fit=crop'">
+                        <div class="home-dispatch-content">
+                            <span class="panorama-meta-tag">PATRIMÔNIO E MEIO AMBIENTE · NORTE</span>
+                            <h3 class="home-dispatch-title editorial-serif">
+                                Como as Comunidades Ribeirinhas e Indígenas Mantêm Viva a Biodiversidade dos Rios Amazônicos
+                            </h3>
+                            <p class="home-dispatch-summary">
+                                Técnicas milenares de manejo do pirarucu, coleta sustentável do açaí e cultivo da maniva comprovam que a conservação da maior floresta tropical do mundo é inseparável da salvaguarda de seus povos originários.
+                            </p>
+                            <a href="noticias.html" class="chapter-read-link"
+                                style="color: var(--color-darkgreen); border-color: var(--color-darkgreen); font-family: var(--font-heading); font-weight: 700;">
+                                Ler Matéria Completa no Panorama <span class="link-arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Lista de Despachos Regionais -->
+                    <div class="home-dispatch-side-list">
+                        <div class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
+                            <span class="panorama-meta-tag">NORDESTE · SALVAGUARDA</span>
+                            <h4 class="side-dispatch-title editorial-serif">
+                                Mestres do Frevo e do Maracatu Criam Novas Escolas de Transmissão Oral em Olinda
+                            </h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted-dark); line-height: 1.6;">
+                                Oficinas gratuitas unem anciãos de nações centenárias a jovens percussionistas na preservação de toques tradicionais.
+                            </p>
+                        </div>
+
+                        <div class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
+                            <span class="panorama-meta-tag">CENTRO-OESTE · BIODIVERSIDADE</span>
+                            <h4 class="side-dispatch-title editorial-serif">
+                                O Retorno das Águas no Pantanal e a Retomada dos Festivais da Viola de Cocho
+                            </h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted-dark); line-height: 1.6;">
+                                Após temporadas severas de estiagem, ribeirinhos de Corumbá celebram o renascimento da pesca artesanal e do cururu pantaneiro.
+                            </p>
+                        </div>
+
+                        <div class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
+                            <span class="panorama-meta-tag">SUDESTE & SUL · PATRIMÔNIO</span>
+                            <h4 class="side-dispatch-title editorial-serif">
+                                Restauro de Imagens Barrocas em Minas e Levantamento do Fandango Caiçara
+                            </h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted-dark); line-height: 1.6;">
+                                Projetos de conservação com universidades mapeiam ateliês tradicionais e mestres luthieres no litoral paranaense e paulista.
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 0.5rem;">
+                            <a href="noticias.html" class="btn-editorial btn-primary"
+                                style="width: 100%; text-align: center; display: block; border-radius: var(--radius-sm); box-shadow: var(--shadow-tactile);">
+                                ACESSAR TODAS AS NOTÍCIAS REGIONAIS →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. COLOPHON & RODAPÉ EDITORIAL (ESTRUTURA DE PUBLICAÇÃO IMPRESSA) -->
+    <footer class="site-footer editorial-colophon">
+        <div class="container">
+            <!-- Topo do Colophon: Selo e Resumo -->
+            <div class="colophon-top-grid">
+                <div class="colophon-brand-block">
+                    <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+                        <div class="brand-logo-emblem" style="width: 44px; height: 44px;">
+                            <img src="assets/img/logo.jpg" alt="Brasil in Cena">
+                        </div>
+                        <div class="brand-logo-text">
+                            <span class="brand-name" style="font-size: 1.15rem; color: var(--color-offwhite);">Brasil in Cena</span>
+                            <span class="brand-sub" style="color: var(--color-accent);">Revista Cultural Brasileira</span>
+                        </div>
+                    </a>
+
+                    <div class="colophon-issn-bar">
+                        <span class="issn-dot">·</span>
+                        <span class="issn-vol">VOLUME 02 · EDIÇÃO 2026 · ZINE DIGITAL</span>
+                    </div>
+                </div>
+
+                <!-- Colunas de Navegação estilo Sumário -->
+                <div class="colophon-nav-cols">
+                    <div class="colophon-col">
+                        <h4 class="colophon-col-title">Cadernos Regionais</h4>
+                        <ul class="colophon-list">
+                            <li><a href="regioes/norte.html">01 · Norte <span class="colophon-sub">Amazônia</span></a></li>
+                            <li><a href="regioes/nordeste.html">02 · Nordeste <span class="colophon-sub">Sertão & Litoral</span></a></li>
+                            <li><a href="regioes/centro-oeste.html">03 · Centro-Oeste <span class="colophon-sub">Cerrado & Pantanal</span></a></li>
+                            <li><a href="regioes/sudeste.html">04 · Sudeste <span class="colophon-sub">Mata Atlântica</span></a></li>
+                            <li><a href="regioes/sul.html">05 · Sul <span class="colophon-sub">Pampa & Araucárias</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="colophon-col">
+                        <h4 class="colophon-col-title">Arquivos & Índices</h4>
+                        <ul class="colophon-list">
+                            <li><a href="#mapa">Mapa do Território <sup class="nav-sup">27</sup></a></li>
+                            <li><a href="#culturas">Manifestações Vivas <sup class="nav-sup">05</sup></a></li>
+                            <li><a href="#gastronomia">Almanaque de Cozinhas <sup class="nav-sup">08</sup></a></li>
+                            <li><a href="noticias.html#calendario">Calendário de Festas <sup class="nav-sup">12</sup></a></li>
+                            <li><a href="noticias.html">Notícias <sup class="nav-sup">09</sup></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé Inferior com Marcações de Impressão de Gráfica -->
+            <div class="colophon-bottom-bar">
+                <div class="colophon-coords">14°14′S · 51°55′W · BRASIL</div>
+                <div class="colophon-copy">© 2026 Brasil in Cena. Publicação cultural independente de acesso aberto e educacional.</div>
+                <div class="colophon-print-marks">
+                    <span class="reg-mark">+</span>
+                    <span class="color-bar-c" style="background:#06352F"></span>
+                    <span class="color-bar-c" style="background:#C8872A"></span>
+                    <span class="color-bar-c" style="background:#E06D20"></span>
+                    <span class="color-bar-c" style="background:#F7F4EF"></span>
+                    <span class="reg-mark">+</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dependências: D3.js para o Mapa Vetorial -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Scripts do Brasil in Cena -->
+    <script src="data/brasilData.js?v=13.0"></script>
+    <script src="js/main.js?v=13.0"></script>
+    <script src="js/brazilMap.js?v=13.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias Regionais — Brasil in Cena</title>
+    <meta name="description" content="Curadoria de notícias sobre cultura, patrimônio imaterial, natureza e território nas 5 regiões do Brasil.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* ── Estilos específicos da página de Notícias ── */
+        .noticias-hero {
+            background-color: var(--color-darkgreen);
+            color: var(--color-offwhite);
+            padding: 5rem 0 3.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .noticias-hero .kicker { color: var(--color-accent); }
+        .noticias-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            font-weight: 400;
+            line-height: 1.05;
+            margin: 0.5rem 0 1rem;
+        }
+        .noticia-card-hero h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--color-darkgreen);
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+        .noticia-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-darkgreen);
+            line-height: 1.3;
+            margin-bottom: 0.6rem;
+        }
+        .noticias-hero p { color: var(--text-muted-light); max-width: 580px; line-height: 1.7; }
+
+        /* Filtros */
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .filter-btn {
+            padding: 0.4rem 1.1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255,255,255,0.25);
+            background: transparent;
+            color: var(--text-muted-light);
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: #fff;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+        }
+
+        /* Grid de notícias */
+        .noticias-main { padding: 3.5rem 0 5rem; }
+
+        .noticias-destaque-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        /* Card destaque grande */
+        .noticia-card-hero {
+            background: var(--color-white);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            border: var(--border-tactile);
+            box-shadow: var(--shadow-tactile);
+            transition: all var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+        }
+        .noticia-card-hero:hover { box-shadow: 6px 6px 0 var(--color-darkgreen); transform: translate(-3px, -3px); }
+        .noticia-card-hero .card-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        .noticia-card-hero .card-body { padding: 1.75rem 2rem 2rem; flex: 1; display: flex; flex-direction: column; }
+        .card-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.6rem;
+        }
+        .card-region-badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .noticia-card-hero h2 {
+            font-size: 1.5rem;
+            color: var(--color-darkgreen);
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+        .noticia-card-hero p {
+            font-size: 0.9rem;
+            color: var(--text-muted-dark);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 1.25rem;
+        }
+        .card-footer-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--color-border-light);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        .card-source { font-size: 0.78rem; color: var(--text-muted-dark); font-style: italic; }
+        .card-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted-dark); }
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            margin-top: 1rem;
+        }
+        .card-link:hover { text-decoration: underline; }
+
+        /* Feed lateral do destaque */
+        .noticias-feed-lateral { display: flex; flex-direction: column; gap: 1rem; }
+        .noticia-feed-card {
+            background: var(--color-white);
+            border: var(--border-tactile);
+            border-radius: var(--radius-card);
+            padding: 1.25rem 1.4rem;
+            box-shadow: var(--shadow-tactile-sm);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        .noticia-feed-card:hover { border-color: var(--color-accent); box-shadow: 4px 4px 0 var(--color-accent); transform: translate(-2px, -2px); }
+        .noticia-feed-card h3 { font-size: 0.95rem; color: var(--color-darkgreen); margin: 0.4rem 0 0.5rem; line-height: 1.35; }
+        .noticia-feed-card p { font-size: 0.82rem; color: var(--text-muted-dark); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* Grid de cards secundários */
+        .noticias-section-title {
+            font-size: 1.2rem;
+            color: var(--color-darkgreen);
+            border-bottom: 2px solid var(--color-border-light);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+        .noticias-secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .noticia-card-sm {
+            background: var(--color-white);
+            border: var(--border-tactile);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-tactile-sm);
+            transition: all var(--transition-fast);
+        }
+        .noticia-card-sm:hover { box-shadow: 5px 5px 0 var(--color-darkgreen); transform: translate(-3px, -3px); }
+        .noticia-card-sm .card-img-sm {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .noticia-card-sm .card-body-sm { padding: 1.1rem 1.25rem 1.4rem; }
+        .noticia-card-sm h3 { font-size: 1rem; color: var(--color-darkgreen); margin: 0.3rem 0 0.5rem; line-height: 1.3; }
+        .noticia-card-sm p { font-size: 0.83rem; color: var(--text-muted-dark); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* Cores por região */
+        .badge-norte { background: rgba(46,125,50,0.12); color: #2E7D32; }
+        .badge-nordeste { background: rgba(196,155,0,0.14); color: #8a6e00; }
+        .badge-centro-oeste { background: rgba(216,67,21,0.12); color: #bf360c; }
+        .badge-sudeste { background: rgba(21,101,192,0.12); color: #0d47a1; }
+        .badge-sul { background: rgba(106,27,154,0.12); color: #4a148c; }
+
+        /* Estado vazio */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .noticias-destaque-grid { grid-template-columns: 1fr; }
+            .noticias-feed-lateral { flex-direction: row; flex-wrap: wrap; }
+            .noticia-feed-card { flex: 1 1 260px; }
+        }
+        @media (max-width: 600px) {
+            .noticias-hero { padding: 3.5rem 0 2.5rem; }
+            .noticias-hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body class="bg-offwhite">
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-logo-emblem">
+                    <img src="assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Revista Cultural</span>
+                </div>
+            </a>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link">← Home</a>
+                <a href="regioes/norte.html" class="nav-link">Norte</a>
+                <a href="regioes/nordeste.html" class="nav-link">Nordeste</a>
+                <a href="regioes/centro-oeste.html" class="nav-link">Centro-Oeste</a>
+                <a href="regioes/sudeste.html" class="nav-link">Sudeste</a>
+                <a href="regioes/sul.html" class="nav-link">Sul</a>
+                <a href="noticias.html" class="nav-link nav-link-btn">Notícias</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero editorial -->
+    <section class="noticias-hero">
+        <div class="container">
+            <span class="kicker">REVISTA DIGITAL · BRASIL IN CENA</span>
+            <h1>Notícias das Regiões</h1>
+            <p>Curadoria de patrimônio cultural, meio ambiente, festivais e território — nas cinco regiões do Brasil.</p>
+
+            <!-- Filtros por região -->
+            <div class="filter-bar" id="filter-bar">
+                <button class="filter-btn active" data-filter="todas">Todas as Regiões</button>
+                <button class="filter-btn" data-filter="Norte" style="--btn-color:#2E7D32">Norte</button>
+                <button class="filter-btn" data-filter="Nordeste" style="--btn-color:#C49B00">Nordeste</button>
+                <button class="filter-btn" data-filter="Centro-Oeste" style="--btn-color:#D84315">Centro-Oeste</button>
+                <button class="filter-btn" data-filter="Sudeste" style="--btn-color:#1565C0">Sudeste</button>
+                <button class="filter-btn" data-filter="Sul" style="--btn-color:#6A1B9A">Sul</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo principal -->
+    <main class="noticias-main">
+        <div class="container">
+            <!-- Destaque + Feed -->
+            <div class="noticias-destaque-grid" id="destaque-section">
+                <!-- Preenchido via JS -->
+            </div>
+
+            <!-- Grid de demais notícias -->
+            <h2 class="noticias-section-title" id="secondary-title">Mais Notícias</h2>
+            <div class="noticias-secondary-grid" id="secondary-grid">
+                <!-- Preenchido via JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- CALENDÁRIO ANUAL DE FESTAS E MANIFESTAÇÕES (MOVIDO DA HOME) -->
+    <section id="calendario" class="events-calendar-section" style="padding: 4.5rem 0; border-top: 1px solid var(--color-border-light); background-color: var(--color-offwhite-warm);">
+        <div class="container">
+            <div class="section-header-editorial">
+                <div class="editorial-folio">
+                    <span>CICLOS ANUAIS</span>
+                    <span>FÉ, DANÇA E CELEBRAÇÃO</span>
+                </div>
+                <span class="editorial-kicker">Calendário Anual</span>
+                <h2 class="section-main-title">O Ritmo das Festas Populares</h2>
+                <p class="section-lead-text">
+                    As manifestações brasileiras acompanham os ciclos da colheita, os períodos de seca e chuva e os sincretismos de fé que transformam praças e ruas em territórios de encontro coletivo. Selecione o mês para navegar pelas celebrações.
+                </p>
+            </div>
+
+            <!-- Seletor de Meses em Linha Temporal -->
+            <div id="months-picker" class="months-picker-bar">
+                <!-- Preenchido via JS -->
+            </div>
+
+            <!-- Exibição dos Eventos do Mês -->
+            <div id="events-display" class="events-display-grid">
+                <!-- Preenchido via JS -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="brand-logo">
+                <div class="brand-logo-emblem" style="width: 38px; height: 38px;">
+                    <img src="assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Revista Cultural</span>
+                </div>
+            </div>
+            <div class="footer-text">Brasil in Cena — Publicação Digital de Memória, Território e Cultura.</div>
+        </div>
+    </footer>
+
+    <script src="data/noticiasData.js"></script>
+    <script src="data/brasilData.js"></script>
+    <script>
+    // ── Mapeamento região → classe badge ──
+    const REGION_BADGE = {
+        'Norte': 'badge-norte',
+        'Nordeste': 'badge-nordeste',
+        'Centro-Oeste': 'badge-centro-oeste',
+        'Sudeste': 'badge-sudeste',
+        'Sul': 'badge-sul'
+    };
+
+    function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const parts = dateStr.split('-');
+        if (parts.length !== 3) return dateStr;
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+
+    function renderDestaque(noticia) {
+        const badgeClass = REGION_BADGE[noticia.regiao] || '';
+        return `
+            <div class="noticia-card-hero">
+                <img src="${noticia.imagem}" alt="${noticia.titulo}" class="card-img" loading="eager"
+                     onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop'">
+                <div class="card-body">
+                    <div>
+                        <div class="card-tag">
+                            ${noticia.categoria}
+                            <span class="card-region-badge ${badgeClass}">${noticia.regiao}</span>
+                        </div>
+                        <h2>${noticia.titulo}</h2>
+                        <p>${noticia.resumo}</p>
+                    </div>
+                    <a href="${noticia.url}" target="_blank" rel="noopener" class="card-link">
+                        Ler na fonte original — ${noticia.fonte} →
+                    </a>
+                    <div class="card-footer-meta">
+                        <span class="card-source">${noticia.fonte}</span>
+                        <span class="card-date">${formatDate(noticia.data)}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderFeedCard(noticia) {
+        const badgeClass = REGION_BADGE[noticia.regiao] || '';
+        return `
+            <a href="${noticia.url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+                <div class="noticia-feed-card">
+                    <div class="card-tag">
+                        ${noticia.categoria}
+                        <span class="card-region-badge ${badgeClass}">${noticia.regiao}</span>
+                    </div>
+                    <h3>${noticia.titulo}</h3>
+                    <p>${noticia.resumo}</p>
+                    <div class="card-source" style="margin-top:0.6rem;">${noticia.fonte} · ${formatDate(noticia.data)}</div>
+                </div>
+            </a>
+        `;
+    }
+
+    function renderSmCard(noticia) {
+        const badgeClass = REGION_BADGE[noticia.regiao] || '';
+        return `
+            <a href="${noticia.url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+                <div class="noticia-card-sm">
+                    <img src="${noticia.imagem}" alt="${noticia.titulo}" class="card-img-sm" loading="lazy"
+                         onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=600&auto=format&fit=crop'">
+                    <div class="card-body-sm">
+                        <div class="card-tag">
+                            ${noticia.categoria}
+                            <span class="card-region-badge ${badgeClass}">${noticia.regiao}</span>
+                        </div>
+                        <h3>${noticia.titulo}</h3>
+                        <p>${noticia.resumo}</p>
+                        <div class="card-source" style="margin-top:0.6rem;">${noticia.fonte} · ${formatDate(noticia.data)}</div>
+                    </div>
+                </div>
+            </a>
+        `;
+    }
+
+    let allNoticias = [];
+    let activeFilter = 'todas';
+
+    function render(filter) {
+        activeFilter = filter;
+        const filtered = filter === 'todas'
+            ? allNoticias
+            : allNoticias.filter(n => n.regiao === filter);
+
+        const destaqueEl = document.getElementById('destaque-section');
+        const secondaryEl = document.getElementById('secondary-grid');
+
+        if (!filtered || filtered.length === 0) {
+            destaqueEl.innerHTML = `<div class="empty-state"><p>Nenhuma notícia disponível para <strong>${filter}</strong> no momento.</p></div>`;
+            secondaryEl.innerHTML = '';
+            return;
+        }
+
+        const destaque = filtered.find(n => n.destaque) || filtered[0];
+        const feedCards = filtered.filter(n => n.id !== destaque.id).slice(0, 3);
+        const secondaryCards = filtered.filter(n => n.id !== destaque.id).slice(3);
+
+        destaqueEl.innerHTML = `
+            ${renderDestaque(destaque)}
+            <div class="noticias-feed-lateral">
+                ${feedCards.map(renderFeedCard).join('')}
+            </div>
+        `;
+
+        secondaryEl.innerHTML = secondaryCards.length > 0
+            ? secondaryCards.map(renderSmCard).join('')
+            : '';
+
+        const secTitle = document.getElementById('secondary-title');
+        if (secTitle) secTitle.style.display = secondaryCards.length > 0 ? 'block' : 'none';
+    }
+
+    // Filtros
+    document.getElementById('filter-bar').addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render(btn.dataset.filter);
+    });
+
+    // Calendário de Eventos
+    function initEventsCalendar() {
+        const monthPickerBar = document.getElementById('months-picker');
+        const eventsDisplay = document.getElementById('events-display');
+        if (!monthPickerBar || !eventsDisplay || !window.BRASIL_DATA) return;
+
+        const meses = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+
+        monthPickerBar.innerHTML = meses.map((mes, i) => `
+            <button class="month-picker-btn ${i === 5 ? 'active' : ''}" data-month="${mes}">${mes}</button>
+        `).join('');
+
+        function renderMonthEvents(monthCode) {
+            const eventsList = BRASIL_DATA.calendarioEventos[monthCode] || [];
+            if (eventsList.length === 0) {
+                eventsDisplay.innerHTML = `<p class="modal-text-block" style="padding:2rem;">Nenhuma manifestação cadastrada para este mês.</p>`;
+                return;
+            }
+
+            eventsDisplay.innerHTML = eventsList.map(ev => `
+                <div class="event-editorial-item">
+                    <div class="event-location-tag">${ev.estado} · Região ${ev.regiao}</div>
+                    <h3 class="event-name-title">${ev.nome}</h3>
+                    <p class="event-desc-text">${ev.desc}</p>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.month-picker-btn').forEach(btn => {
+                if (btn.dataset.month === monthCode) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.month-picker-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                renderMonthEvents(btn.dataset.month);
+            });
+        });
+
+        renderMonthEvents("JUN");
+    }
+
+    // Carregar dados
+    document.addEventListener('DOMContentLoaded', async () => {
+        initEventsCalendar();
+        try {
+            const res = await fetch('data/noticias.json');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            allNoticias = await res.json();
+        } catch (err) {
+            console.warn('Usando dados de notícias do arquivo local:', err);
+            if (window.NOTICIAS_DATA) {
+                allNoticias = window.NOTICIAS_DATA;
+            }
+        }
+        render('todas');
+    });
+    </script>
+</body>
+</html>

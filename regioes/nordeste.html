@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Região Nordeste — Caderno 02 — Brasil in Cena</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main.css?v=11.0">
+    <style>
+        :root {
+            --region-accent: #C47D2B;
+        }
+    </style>
+</head>
+
+<body class="bg-offwhite">
+
+    <!-- Header Principal -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo">
+                <div class="brand-logo-emblem">
+                    <img src="../assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Revista Cultural</span>
+                </div>
+            </a>
+            <nav class="site-nav">
+                <a href="../index.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;">← Voltar
+                    ao Brasil</a>
+                <a href="#mapa-estados" class="nav-link">Mapa<sup class="nav-sup">09</sup></a>
+                <a href="#cultura" class="nav-link">Culturas<sup class="nav-sup">04</sup></a>
+                <a href="#gastronomia" class="nav-link">Cozinhas<sup class="nav-sup">04</sup></a>
+                <a href="#territorio" class="nav-link">Território</a>
+                <a href="#panorama" class="nav-link">Notícias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO EDITORIAL ZINE PANORÂMICO -->
+        <section class="home-hero hero-panoramic-cover region-hero-cover">
+            <div class="hero-bg-overlay"
+                style="background-image: linear-gradient(to right, rgba(6, 53, 47, 0.96) 0%, rgba(6, 53, 47, 0.85) 40%, rgba(6, 53, 47, 0.5) 75%, rgba(6, 53, 47, 0.25) 100%), linear-gradient(to top, rgba(6, 53, 47, 0.95) 0%, rgba(6, 53, 47, 0.2) 60%), url('../assets/img/nordeste/hero_nordeste.webp');">
+            </div>
+
+            <div class="container hero-content-relative">
+                <!-- Marcas de corte gráfica editorial -->
+                <span class="crop-mark crop-tl">+</span>
+                <span class="crop-mark crop-tr">+</span>
+
+                <div class="hero-publication-bar">
+                    <span class="pub-mark">BRASIL IN CENA</span>
+                    <span class="pub-sep">/</span>
+                    <span class="pub-folio">CADERNO REGIONAL 02</span>
+                    <span class="pub-sep">/</span>
+                    <span class="pub-issue">REGIÃO NORDESTE</span>
+                </div>
+
+                <div class="home-hero-narrative-overlay">
+                    <span class="editorial-kicker hero-kicker-glow"
+                        style="color: var(--region-accent) !important;">Sertão, Mar & Pulsação Sonora</span>
+                    <h1 class="hero-editorial-title editorial-title-offset">
+                        Maranhão à Bahia: as muitas vozes da <em>Resistência Popular</em>
+                    </h1>
+                    <p class="hero-editorial-lead">
+                        Uma travessia sensorial pelos nove estados do Nordeste. Da literatura de cordel e do frevo
+                        acrobático à culinária de fogo vivo no dendê e às margens históricas do Rio São Francisco.
+                    </p>
+
+                    <div class="hero-actions-row">
+                        <div class="hero-scroll-cue">
+                            <a href="#mapa-estados" class="hero-scroll-link">
+                                <span class="cue-line" style="background-color: var(--region-accent);"></span>
+                                <span class="cue-text">Explorar os 9 Estados</span>
+                                <span class="cue-arrow">↓</span>
+                            </a>
+                        </div>
+
+                        <div class="hero-expedition-badge">
+                            <span class="caption-num">02.0</span>
+                            <span class="caption-text">Caatinga, Mata Atlântica e Costa Oriental</span>
+                            <span class="caption-coord">08°03′S · 34°52′W</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. REGIONAL STATS RIBBON -->
+        <div class="region-stats-ribbon">
+            <div class="container">
+                <div class="data-stats-grid">
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">9 Estados</div>
+                        <div class="data-stat-lbl">Divisão Política Territorial</div>
+                    </div>
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">1.554.291 km²</div>
+                        <div class="data-stat-lbl">18% do Território Brasileiro</div>
+                    </div>
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">Caatinga & Mata Atlântica</div>
+                        <div class="data-stat-lbl">Biomas e Climas Predominantes</div>
+                    </div>
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">54,6 Milhões</div>
+                        <div class="data-stat-lbl">Habitantes (Censo IBGE)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. MESA DE LUZ: MAPA D3.JS + DOSSIÊ TÁTIL DOS ESTADOS -->
+        <section id="mapa-estados" class="section-padding bg-offwhite">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>PRANCHA CARTOGRÁFICA · D3.JS</span>
+                        <div class="scale-ruler">
+                            <span>ESCALA 1:50.000</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>GEOJSON IBGE OFICIAL</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Cartografia Interativa</span>
+                    <h2 class="section-main-title editorial-title-offset">Os Nove Estados do <em>Nordeste</em></h2>
+                    <p class="section-lead-text">
+                        Clique ou passe o cursor sobre qualquer unidade federativa para carregar os dados geográficos,
+                        matrizes culturais e gastronomia do estado selecionado.
+                    </p>
+                </div>
+
+                <div class="territory-split-layout">
+                    <!-- Mesa de Luz Cartográfica -->
+                    <div class="territory-map-wrapper">
+                        <span class="crop-mark crop-tl">⊕</span>
+                        <span class="crop-mark crop-tr">⊕</span>
+                        <span class="crop-mark crop-bl">+</span>
+                        <span class="crop-mark crop-br">+</span>
+
+                        <div class="territory-map-header">
+                            <span>Prancha Vetorial D3</span>
+                            <span id="active-state-tag" style="color: var(--region-accent); font-weight: 700;">NORDESTE
+                                · 9 ESTADOS</span>
+                        </div>
+
+                        <div id="d3-map-nordeste" class="state-svg-wrapper grid-cartographic"></div>
+                    </div>
+
+                    <!-- Ficha Técnica Editorial / Dossier Panel -->
+                    <div class="state-detail-panel territory-dossier-panel">
+                        <div class="dossier-stamp-row">
+                            <span class="state-badge" id="state-badge">ESTADO SELECIONADO</span>
+                            <span class="dossier-code" id="state-code">UF · BA</span>
+                        </div>
+
+                        <h2 class="editorial-serif"
+                            style="font-size: 2.6rem; color: var(--color-darkgreen); margin-bottom: 0.25rem; line-height: 1.1;"
+                            id="state-name">Bahia</h2>
+                        <div class="dossier-capital-lead" id="state-capital">Capital: Salvador</div>
+
+                        <div class="dossier-blocks-grid">
+                            <div class="dossier-info-block">
+                                <span class="dossier-label">01 / BIOMA E GEOGRAFIA</span>
+                                <p class="dossier-text" id="state-bio">Maior litoral do Brasil, combinando costa
+                                    tropical com o Sertão da Caatinga e a Chapada Diamantina.</p>
+                            </div>
+
+                            <div class="dossier-info-block">
+                                <span class="dossier-label">02 / MANIFESTAÇÕES CULTURAIS</span>
+                                <p class="dossier-text" id="state-cult">Samba de Roda do Recôncavo, Afoxé Filhos de
+                                    Gandhy, Lavagem do Bonfim, Irmandade da Boa Morte.</p>
+                            </div>
+
+                            <div class="dossier-info-block">
+                                <span class="dossier-label">03 / CULINÁRIA E COZINHA</span>
+                                <p class="dossier-text" id="state-food">Acarajé, Vatapá, Caruru, Moqueca Baiana com
+                                    azeite de dendê e leite de coco.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MANIFESTAÇÕES CULTURAIS (STICKY EXHIBITION) -->
+        <section id="cultura" class="sticky-exhibition-section">
+            <div class="sticky-exhibition-layout">
+                <div class="exhibition-media-sticky">
+                    <img id="nordeste-cultura-img" class="exhibition-image" src="../assets/img/nordeste/frevo1.jpg"
+                        alt="Frevo">
+                    <div class="exhibition-media-hud">
+                        <span class="exhibition-hud-tag">ENSAIO VISUAL · CULTURA</span>
+                        <span class="exhibition-hud-title" id="nordeste-hud-title">Frevo</span>
+                    </div>
+                </div>
+
+                <div class="exhibition-scroll-container">
+                    <div style="margin-bottom: 2rem;">
+                        <span class="editorial-kicker" style="color: var(--region-accent);">MANIFESTAÇÕES DO NORDESTE</span>
+                        <h2 class="editorial-serif"
+                            style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-top: 0.5rem; color: #fff;">Patrimônio
+                            Imaterial & Ritos Coletivos</h2>
+
+                        <!-- Barra de Seleção Rápida por Título -->
+                        <div class="exhibition-title-nav" aria-label="Navegar por manifestações culturais">
+                            <button class="exhibition-nav-btn active" type="button"><span class="exhibition-nav-num">01</span> Frevo</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">02</span> Maracatu</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">03</span> Bumba Meu Boi</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">04</span> Forró Tradicional</button>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-item-block active" data-img="../assets/img/nordeste/frevo1.jpg">
+                        <div class="exhibition-number"><span>01 / 04</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">Frevo <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">RECIFE E OLINDA · PERNAMBUCO</div>
+                        <p class="exhibition-item-text">
+                            Patrimônio Imaterial da Humanidade pela UNESCO desde 2012. Surgido no Recife no final do
+                            século XIX entre bandas militares e blocos carnavalescos, combina passos acrobáticos
+                            derivados da capoeira, ritmo frenético de metais e a sombrinha colorida como objeto
+                            cenográfico. Os passistas parecem flutuar sem nunca tocar o chão.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-item-block" data-img="../assets/img/nordeste/maracatu.jpg">
+                        <div class="exhibition-number"><span>02 / 04</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">Maracatu de Baque Virado <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">ZONA DA MATA · PERNAMBUCO</div>
+                        <p class="exhibition-item-text">
+                            Cortejo régio originado nos séculos XVII e XVIII, quando reis e rainhas coroados pela Igreja
+                            Católica desfilavam com suas cortes de escravizados. Os tambores alfaia produzem o baque
+                            virado — uma síncope complexa e poderosa. A dama do paço carrega a calunga, boneca sagrada
+                            guardiã dos ancestrais.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-item-block" data-img="../assets/img/nordeste/bumba_boi.jpg">
+                        <div class="exhibition-number"><span>03 / 04</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">Bumba Meu Boi & Mestres Artesãos <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">SÃO LUÍS · MARANHÃO</div>
+                        <p class="exhibition-item-text">
+                            Uma das mais complexas manifestações do folclore brasileiro. A ópera popular do Nordeste
+                            narra a morte e ressurreição de um boi sagrado. No Maranhão existem quatro sotaques
+                            distintos — da ilha, de matraca, de orquestra e de zabumba — cada um com figurino, ritmo e
+                            dança específicos.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-item-block" data-img="../assets/img/nordeste/forro.jpg">
+                        <div class="exhibition-number"><span>04 / 04</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">São João e Forró Tradicional <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">CARUARU E CAMPINA GRANDE · NORDESTE</div>
+                        <p class="exhibition-item-text">
+                            O maior ciclo festivo popular do interior do Brasil acontece durante todo o mês de junho.
+                            Trios de zabumba, triângulo e sanfona preservam o forró pé-de-serra autêntico, acompanhado
+                            por quadrilhas juninas e a celebração das colheitas de milho do sertão.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. GASTRONOMIA NORDESTINA -->
+        <section id="gastronomia" class="section-padding bg-offwhite">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>COZINHAS DE FOGO E MEMÓRIA</span>
+                        <div class="scale-ruler">
+                            <span>SABORES DE ORIGEM</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>PATRIMÔNIO IMATERIAL</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Cozinha Nordestina</span>
+                    <h2 class="section-main-title editorial-title-offset">Pratos Típicos e <em>Saberes Ancestrais</em>
+                    </h2>
+                    <p class="section-lead-text">
+                        A confluência das técnicas indígenas de mandioca, a cozinha dos engenhos de açúcar e a mestria
+                        afro-brasileira dos azeites e pimentas.
+                    </p>
+                </div>
+
+                <div class="gastronomy-editorial-grid">
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/nordeste/Acarajé_culi.webp" alt="Acarajé Baiano" loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">BAHIA · PATRIMÔNIO IPHAN</span>
+                            <h3 class="dish-card-title">Acarajé Tradicional</h3>
+                            <p class="dish-card-snippet">Bolinho de feijão-fradinho moído em pedra e frito no azeite de
+                                dendê fervente. Recheado com vatapá, caruru e camarão seco defumado.</p>
+                        </div>
+                    </div>
+
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/nordeste/Baião_culi.webp" alt="Baião de Dois" loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">CEARÁ & SERTÃO</span>
+                            <h3 class="dish-card-title">Baião de Dois com Coalho</h3>
+                            <p class="dish-card-snippet">Arroz da terra e feijão-de-corda cozidos em caldo aromático com
+                                carne de sol e cubos de queijo de coalho tostados na chapa de ferro.</p>
+                        </div>
+                    </div>
+
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/nordeste/Bolo_Rolo_culi.webp" alt="Bolo de Rolo" loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">PERNAMBUCO · PATRIMÔNIO CULTURAL</span>
+                            <h3 class="dish-card-title">Bolo de Rolo Pernambucano</h3>
+                            <p class="dish-card-snippet">Camadas milimétricas de massa amanteigada enroladas com
+                                goiabada derretida. Tradição secular com técnica manual de precisão.</p>
+                        </div>
+                    </div>
+
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/nordeste/Cajuzinho_culi.webp" alt="Cajuzinho do Sertão"
+                                loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">SERIDÓ & SERTÃO NORDESTINO</span>
+                            <h3 class="dish-card-title">Cajuzinho e Doçaria do Sertão</h3>
+                            <p class="dish-card-snippet">Doce clássico feito com castanha de caju moída, amendoim e
+                                rapadura, refletindo a abundância do cajueiro nas terras secas do Nordeste.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TERRITÓRIO E GEOGRAFIA DO NORDESTE (ZINE FEATURE) -->
+        <section id="territorio" class="section-padding"
+            style="background-color: #FFFFFF; border-top: 1px solid var(--color-border-light);">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>DOSSIÊ GEOGRÁFICO · VOL. 02</span>
+                        <div class="scale-ruler">
+                            <span>BACIA DO SÃO FRANCISCO</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>BIOMA CAATINGA</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Território & Ecossistemas</span>
+                    <h2 class="section-main-title editorial-title-offset">O Velho Chico, a Caatinga e as <em>Rotas do
+                            Semiárido</em></h2>
+                </div>
+
+                <div class="territory-feature-grid">
+                    <div class="territory-pullquote-card">
+                        <blockquote class="territory-pullquote">
+                            “A Caatinga é o único bioma exclusivamente brasileiro. O que parece seco na estiagem explode
+                            em verde e vida com as primeiras chuvas do sertão.”
+                        </blockquote>
+                        <div class="territory-field-notes">
+                            <p style="margin-bottom: 0.85rem;">
+                                O Rio São Francisco corta o Nordeste como espinha dorsal da integração sertaneja,
+                                permitindo a agricultura irrigada de frutas no Vale do São Francisco e garantindo a
+                                subsistência de centenas de comunidades ribeirinhas e quilombolas.
+                            </p>
+                            <p style="margin: 0;">
+                                Das falésias coloridas do litoral cearense aos canyons do Xingó em Sergipe e Alagoas, a
+                                geografia nordestina combina ecossistemas costeiros tropicais com a imponência rochosa
+                                do semiárido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="territory-feature-photo-wrap">
+                        <img src="../assets/img/nordeste/hero_nordeste.webp" alt="Paisagem da Caatinga e Sertão"
+                            class="territory-feature-photo">
+                        <div class="territory-photo-caption">
+                            <span>Sertão Central & Bacia Hidrográfica</span>
+                            <span>09°23′S · 40°30′W</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. DESPACHOS & PANORAMA CULTURAL -->
+        <section id="panorama" class="section-padding bg-offwhite"
+            style="border-top: 1px solid var(--color-border-light);">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <span class="editorial-kicker" style="color: var(--region-accent);">PANORAMA REGIONAL</span>
+                    <h2 class="section-main-title editorial-title-offset">Notícias do <em>Nordeste</em></h2>
+                </div>
+
+                <div class="panorama-feed-grid">
+                    <article class="panorama-feed-card">
+                        <div>
+                            <div class="panorama-meta-tag">IPHAN · PATRIMÔNIO IMATERIAL</div>
+                            <h3 class="panorama-feed-title">Ofício das Baianas de Acarajé completa duas décadas como
+                                Patrimônio Cultural do Brasil</h3>
+                        </div>
+                        <div class="panorama-feed-source">Fonte: Agência Brasil / IPHAN · Salvador (BA)</div>
+                    </article>
+
+                    <article class="panorama-feed-card">
+                        <div>
+                            <div class="panorama-meta-tag">ARTE & MEMÓRIA COLETIVA</div>
+                            <h3 class="panorama-feed-title">Museu do Barro de Caruaru inaugura galeria permanente de
+                                Mestres do Alto do Moura</h3>
+                        </div>
+                        <div class="panorama-feed-source">Fonte: Fundação do Patrimônio Histórico de PE · Caruaru (PE)
+                        </div>
+                    </article>
+
+                    <article class="panorama-feed-card">
+                        <div>
+                            <div class="panorama-meta-tag">LITERATURA & CORDEL</div>
+                            <h3 class="panorama-feed-title">Xilogravuras de Juazeiro do Norte ganham restauração e
+                                catálogo digital aberto</h3>
+                        </div>
+                        <div class="panorama-feed-source">Fonte: Acervo Cultural do Cariri · Juazeiro do Norte (CE)
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. OUTROS CADERNOS REGIONAIS -->
+        <section class="region-switcher-section">
+            <div class="container">
+                <div class="section-header-editorial" style="margin-bottom: 2rem;">
+                    <span class="editorial-kicker">BIBLIOTECA DE CAMPO</span>
+                    <h2 class="section-main-title editorial-title-offset">Explorar Outros <em>Cadernos</em></h2>
+                </div>
+
+                <div class="region-switcher-grid">
+                    <a href="norte.html" class="region-switcher-card" style="--card-accent: #2A6B45;">
+                        <span class="region-switcher-num">CADERNO 01</span>
+                        <h4 class="region-switcher-title">Norte</h4>
+                        <span class="region-switcher-tag">Amazônia, Rios & Bacia Viva</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+
+                    <a href="centro-oeste.html" class="region-switcher-card" style="--card-accent: #B8532F;">
+                        <span class="region-switcher-num">CADERNO 03</span>
+                        <h4 class="region-switcher-title">Centro-Oeste</h4>
+                        <span class="region-switcher-tag">Planalto, Pantanal & Viola</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+
+                    <a href="sudeste.html" class="region-switcher-card" style="--card-accent: #1E3A63;">
+                        <span class="region-switcher-num">CADERNO 04</span>
+                        <h4 class="region-switcher-title">Sudeste</h4>
+                        <span class="region-switcher-tag">Barroco, Montanhas & Metrópole</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+
+                    <a href="sul.html" class="region-switcher-card" style="--card-accent: #6B538C;">
+                        <span class="region-switcher-num">CADERNO 05</span>
+                        <h4 class="region-switcher-title">Sul</h4>
+                        <span class="region-switcher-tag">Coxilhas, Araucárias & Fogo de Chão</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Editorial -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="../index.html" class="brand-logo">
+                <div class="brand-logo-emblem">
+                    <img src="../assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Caderno 02 · Nordeste</span>
+                </div>
+            </a>
+            <div class="footer-text">Brasil in Cena — Revista Cultural Independente de Memória, Território e Paisagem.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../js/regionMap.js?v=11.0"></script>
+    <script>
+        const stateDataNordeste = {
+            Bahia: { code: "UF · BA", capital: "Salvador", bio: "Maior litoral do Brasil, combinando costa tropical com o Sertão da Caatinga e a Chapada Diamantina.", cult: "Samba de Roda do Recôncavo, Afoxé Filhos de Gandhy, Lavagem do Bonfim, Irmandade da Boa Morte.", food: "Acarajé, Vatapá, Caruru, Moqueca Baiana com dendê e leite de coco." },
+            Pernambuco: { code: "UF · PE", capital: "Recife", bio: "Centro histórico e cultural da zona da mata, agreste e sertão pernambucano cortado pelo Rio Capibaribe.", cult: "Frevo de rua, Maracatu de Baque Virado, Bonecos Gigantes de Olinda, Ciranda.", food: "Bolo de Rolo legítimo, Tapioca de massa fresca, Carne de Sol com macaxeira." },
+            Ceará: { code: "UF · CE", capital: "Fortaleza", bio: "Litoral de dunas brancas e falésias alaranjadas, integrado ao sertão central e à Serra de Baturité.", cult: "Maracatu Cearense, Reisado do Cariri, literatura de cordel impressa em tipografia.", food: "Baião de Dois com Queijo de Coalho tostado e carne de sol desfiada." },
+            Maranhão: { code: "UF · MA", capital: "São Luís", bio: "Transição ecológica única entre a Amazônia e o Nordeste, dunas dos Lençóis Maranhenses e delta do Parnaíba.", cult: "Bumba Meu Boi (sotaques de matraca e orquestra), Tambor de Crioula ancestral.", food: "Arroz de Cuxá com vinagreira, Torta de Camarão da Ilha, Guaraná Jesus." },
+            Piauí: { code: "UF · PI", capital: "Teresina", bio: "Berço pré-histórico das Américas com a Serra da Capivara e cânions fluviais do Rio Poti.", cult: "Reisado do Piauí, arte santeira em madeira de cedro, Bumba Meu Boi piauiense.", food: "Carne de Sol com Paçoca de Pilão e Maria Isabel (arroz com carne de sol)." },
+            Alagoas: { code: "UF · AL", capital: "Maceió", bio: "Foz do Rio São Francisco e litoral de lagoas protegidas por arrecifes de corais vivos.", cult: "Guerreiro alagoano com chapéus de catedrais iluminadas, Folguedos Natalinos.", food: "Sururu ao Leite de Coco das lagoas Mundaú e Manguaba, Chiclete de Camarão." },
+            Sergipe: { code: "UF · SE", capital: "Aracaju", bio: "Menor estado em extensão do Brasil, marcado pelos canyons de Xingó e manguezais costeiros.", cult: "Festa secular dos Lambe-Sujos e Caboclinhos em Laranjeiras, Taieiras.", food: "Caranguejada ao molho vinagrete, Moqueca sergipana de camarão fresco." },
+            "Rio Grande do Norte": { code: "UF · RN", capital: "Natal", bio: "Esquina atlântica da América do Sul com o maior cajueiro do mundo e as dunas móveis de Genipabu.", cult: "Boi de Reis, Congos de Calçola e cortejos populares do sertão do Seridó.", food: "Carne de Sol à moda de Caicó servida com pirão de queijo coalho e feijão verde." },
+            Paraíba: { code: "UF · PB", capital: "João Pessoa", bio: "Ponto mais oriental das Américas na Ponta do Seixas, integrado ao agreste da Serra da Borborema.", cult: "O Maior São João do Mundo em Campina Grande, poetas repentistas do Pajeú.", food: "Rubacão cremoso de feijão de corda e queijo coalho, Buchada de Bode sertaneja." }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRealD3RegionMap('nordeste', 'd3-map-nordeste', (stateName, sigla) => {
+                const d = stateDataNordeste[stateName] || { code: `UF · ${sigla || 'BR'}`, capital: "Capital", bio: "Descrição territorial", cult: "Manifestações", food: "Culinária" };
+                const stateNameEl = document.getElementById('state-name');
+                const stateCapEl = document.getElementById('state-capital');
+                const stateBioEl = document.getElementById('state-bio');
+                const stateCultEl = document.getElementById('state-cult');
+                const stateFoodEl = document.getElementById('state-food');
+                const stateCodeEl = document.getElementById('state-code');
+                const activeTagEl = document.getElementById('active-state-tag');
+
+                if (stateNameEl) stateNameEl.textContent = stateName;
+                if (stateCapEl) stateCapEl.textContent = `Capital: ${d.capital}`;
+                if (stateBioEl) stateBioEl.textContent = d.bio;
+                if (stateCultEl) stateCultEl.textContent = d.cult;
+                if (stateFoodEl) stateFoodEl.textContent = d.food;
+                if (stateCodeEl) stateCodeEl.textContent = d.code || `UF · ${sigla}`;
+                if (activeTagEl) activeTagEl.textContent = `${stateName.toUpperCase()} · ${d.code}`;
+            });
+
+            // Inicializar Exposição Cultural Sincronizada com suporte a clique nos títulos
+            initStickyCultureExhibition({
+                sectionId: 'cultura',
+                imgId: 'nordeste-cultura-img',
+                hudTitleId: 'nordeste-hud-title'
+            });
+        });
+    </script>
+</body>
+
+</html>

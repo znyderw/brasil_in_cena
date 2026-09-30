@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Região Norte — Caderno 01 — Brasil in Cena</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main.css?v=11.0">
+    <style>
+        :root {
+            --region-accent: #2A6B45;
+        }
+    </style>
+</head>
+
+<body class="bg-offwhite">
+
+    <!-- Header Principal -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo">
+                <div class="brand-logo-emblem">
+                    <img src="../assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Revista Cultural</span>
+                </div>
+            </a>
+            <nav class="site-nav">
+                <a href="../index.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;">← Voltar
+                    ao Brasil</a>
+                <a href="#mapa-estados" class="nav-link">Mapa<sup class="nav-sup">07</sup></a>
+                <a href="#cultura" class="nav-link">Culturas<sup class="nav-sup">03</sup></a>
+                <a href="#gastronomia" class="nav-link">Cozinhas<sup class="nav-sup">03</sup></a>
+                <a href="#territorio" class="nav-link">Território</a>
+                <a href="#panorama" class="nav-link">Notícias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO EDITORIAL ZINE PANORÂMICO -->
+        <section class="home-hero hero-panoramic-cover region-hero-cover">
+            <div class="hero-bg-overlay"
+                style="background-image: linear-gradient(to right, rgba(6, 53, 47, 0.96) 0%, rgba(6, 53, 47, 0.85) 40%, rgba(6, 53, 47, 0.5) 75%, rgba(6, 53, 47, 0.25) 100%), linear-gradient(to top, rgba(6, 53, 47, 0.95) 0%, rgba(6, 53, 47, 0.2) 60%), url('../assets/img/norte/hero_norte_amazo.webp');">
+            </div>
+
+            <div class="container hero-content-relative">
+                <span class="crop-mark crop-tl">+</span>
+                <span class="crop-mark crop-tr">+</span>
+
+                <div class="hero-publication-bar">
+                    <span class="pub-mark">BRASIL IN CENA</span>
+                    <span class="pub-sep">/</span>
+                    <span class="pub-folio">CADERNO REGIONAL 01</span>
+                    <span class="pub-sep">/</span>
+                    <span class="pub-issue">REGIÃO NORTE</span>
+                </div>
+
+                <div class="home-hero-narrative-overlay">
+                    <span class="editorial-kicker hero-kicker-glow"
+                        style="color: var(--region-accent) !important;">Bacia Viva & Floresta Contínua</span>
+                    <h1 class="hero-editorial-title editorial-title-offset">
+                        O Império das Águas e a <em>Memória dos Povos da Floresta</em>
+                    </h1>
+                    <p class="hero-editorial-lead">
+                        Amazonas · Pará · Acre · Amapá · Rondônia · Roraima · Tocantins. Onde os rios operam como
+                        autoestradas biológicas e o tacacá fervente na cuia preserva séculos de botânica indígena.
+                    </p>
+
+                    <div class="hero-actions-row">
+                        <div class="hero-scroll-cue">
+                            <a href="#mapa-estados" class="hero-scroll-link">
+                                <span class="cue-line" style="background-color: var(--region-accent);"></span>
+                                <span class="cue-text">Explorar os 7 Estados</span>
+                                <span class="cue-arrow">↓</span>
+                            </a>
+                        </div>
+
+                        <div class="hero-expedition-badge">
+                            <span class="caption-num">01.0</span>
+                            <span class="caption-text">Bioma Amazônico & Bacia Hidrográfica</span>
+                            <span class="caption-coord">02°26′S · 54°42′W</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. REGIONAL STATS RIBBON -->
+        <div class="region-stats-ribbon">
+            <div class="container">
+                <div class="data-stats-grid">
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">7 Estados</div>
+                        <div class="data-stat-lbl">Divisão Política Territorial</div>
+                    </div>
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">3.853.676 km²</div>
+                        <div class="data-stat-lbl">45% do Território Brasileiro</div>
+                    </div>
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">Amazônia (87%)</div>
+                        <div class="data-stat-lbl">Bioma Tropical Predominante</div>
+                    </div>
+                    <div class="data-stat-box" style="border-left: 4px solid var(--region-accent);">
+                        <div class="data-stat-val">17,3 Milhões</div>
+                        <div class="data-stat-lbl">Habitantes (Censo IBGE)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. MESA DE LUZ: MAPA D3.JS + DOSSIÊ TÁTIL DOS ESTADOS -->
+        <section id="mapa-estados" class="section-padding bg-offwhite">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>PRANCHA CARTOGRÁFICA · D3.JS</span>
+                        <div class="scale-ruler">
+                            <span>ESCALA 1:100.000</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>GEOJSON IBGE OFICIAL</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Cartografia Interativa</span>
+                    <h2 class="section-main-title editorial-title-offset">Os Sete Estados do <em>Norte</em></h2>
+                    <p class="section-lead-text">
+                        Clique ou passe o cursor sobre qualquer unidade federativa para abrir a ficha de campo,
+                        ecossistemas fluviais e cultura local.
+                    </p>
+                </div>
+
+                <div class="territory-split-layout">
+                    <!-- Mesa de Luz Cartográfica -->
+                    <div class="territory-map-wrapper">
+                        <span class="crop-mark crop-tl">⊕</span>
+                        <span class="crop-mark crop-tr">⊕</span>
+                        <span class="crop-mark crop-bl">+</span>
+                        <span class="crop-mark crop-br">+</span>
+
+                        <div class="territory-map-header">
+                            <span>Prancha Vetorial D3</span>
+                            <span id="active-state-tag" style="color: var(--region-accent); font-weight: 700;">NORTE · 7
+                                ESTADOS</span>
+                        </div>
+
+                        <div id="d3-map-norte" class="state-svg-wrapper grid-cartographic"></div>
+                    </div>
+
+                    <!-- Ficha Técnica Editorial / Dossier Panel -->
+                    <div class="state-detail-panel territory-dossier-panel">
+                        <div class="dossier-stamp-row">
+                            <span class="state-badge" id="state-badge">ESTADO SELECIONADO</span>
+                            <span class="dossier-code" id="state-code">UF · AM</span>
+                        </div>
+
+                        <h2 class="editorial-serif"
+                            style="font-size: 2.6rem; color: var(--color-darkgreen); margin-bottom: 0.25rem; line-height: 1.1;"
+                            id="state-name">Amazonas</h2>
+                        <div class="dossier-capital-lead" id="state-capital">Capital: Manaus</div>
+
+                        <div class="dossier-blocks-grid">
+                            <div class="dossier-info-block">
+                                <span class="dossier-label">01 / BIOMA E GEOGRAFIA</span>
+                                <p class="dossier-text" id="state-bio">Maior estado do país, coberto pela Floresta
+                                    Amazônica e cortado pela bacia do Rio Negro e Solimões.</p>
+                            </div>
+
+                            <div class="dossier-info-block">
+                                <span class="dossier-label">02 / MANIFESTAÇÕES CULTURAIS</span>
+                                <p class="dossier-text" id="state-cult">Festival Folclórico de Parintins (Garantido e
+                                    Caprichoso), rituais indígenas ancestrais.</p>
+                            </div>
+
+                            <div class="dossier-info-block">
+                                <span class="dossier-label">03 / CULINÁRIA E COZINHA</span>
+                                <p class="dossier-text" id="state-food">Pirarucu de Casaca, Caldo de Tucupi,
+                                    X-Caboquinho com tucumã fresco.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MANIFESTAÇÕES CULTURAIS (STICKY EXHIBITION) -->
+        <section id="cultura" class="sticky-exhibition-section">
+            <div class="sticky-exhibition-layout">
+                <div class="exhibition-media-sticky">
+                    <img id="norte-cultura-img" class="exhibition-image" src="../assets/img/norte/Carimbo.jpg"
+                        alt="Carimbó">
+                    <div class="exhibition-media-hud">
+                        <span class="exhibition-hud-tag">ENSAIO VISUAL · CULTURA</span>
+                        <span class="exhibition-hud-title" id="norte-hud-title">Carimbó do Marajó</span>
+                    </div>
+                </div>
+
+                <div class="exhibition-scroll-container">
+                    <div style="margin-bottom: 2rem;">
+                        <span class="editorial-kicker" style="color: var(--region-accent);">MANIFESTAÇÕES DO NORTE</span>
+                        <h2 class="editorial-serif"
+                            style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-top: 0.5rem; color: #fff;">Expressões
+                            Tradicionais & Saberes Fluviais</h2>
+
+                        <!-- Barra de Seleção Rápida por Título -->
+                        <div class="exhibition-title-nav" aria-label="Navegar por manifestações culturais">
+                            <button class="exhibition-nav-btn active" type="button"><span class="exhibition-nav-num">01</span> Carimbó</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">02</span> Círio de Nazaré</button>
+                            <button class="exhibition-nav-btn" type="button"><span class="exhibition-nav-num">03</span> Festival de Parintins</button>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-item-block active" data-img="../assets/img/norte/Carimbo.jpg">
+                        <div class="exhibition-number"><span>01 / 03</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">Carimbó do Marajó <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">PARÁ · MARAJÓ E COSTA ATLÂNTICA</div>
+                        <p class="exhibition-item-text">
+                            Dança de roda contagiante tocada com curimbós esculpidos em troncos ocos de madeira da mata.
+                            As mulheres dançam descalças com saias floridas e rodadas, girando ao redor dos homens em
+                            movimentos de sedução e celebração comunitária da pesca.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-item-block" data-img="../assets/img/norte/cirio_nazare.webp">
+                        <div class="exhibition-number"><span>02 / 03</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">Círio de Nazaré <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">BELÉM · PARÁ</div>
+                        <p class="exhibition-item-text">
+                            A maior manifestação religiosa do Brasil, reunindo mais de 2 milhões de pessoas nas ruas de
+                            Belém. A corda dos promesseiros, os brinquedos esculpidos em miriti e o almoço do Círio com
+                            maniçoba criam uma experiência de comoção popular singular.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-item-block" data-img="../assets/img/norte/festival_parintins.jpg">
+                        <div class="exhibition-number"><span>03 / 03</span> <span class="exhibition-click-hint">Clique para selecionar</span></div>
+                        <h3 class="exhibition-item-title">Festival Folclórico de Parintins <span class="exhibition-click-hint">↗</span></h3>
+                        <div class="exhibition-item-location">PARINTINS · AMAZONAS</div>
+                        <p class="exhibition-item-text">
+                            A grandiosa disputa cênica de três noites na ilha tupinambarana entre o Boi Garantido
+                            (vermelho) e o Boi Caprichoso (azul). Ópera amazônica com toadas tribais, alegorias
+                            monumentais e coreografias que retratam cosmovisões indígenas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. GASTRONOMIA DA FLORESTA -->
+        <section id="gastronomia" class="section-padding bg-offwhite">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>BOTÂNICA DA MANDIOCA E TUCUPI</span>
+                        <div class="scale-ruler">
+                            <span>SABORES DE ORIGEM</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>PATRIMÔNIO IMATERIAL</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Cozinha da Floresta</span>
+                    <h2 class="section-main-title editorial-title-offset">Pratos Típicos e <em>Saberes Amazônicos</em>
+                    </h2>
+                    <p class="section-lead-text">
+                        A mestria ancestral no processamento da mandioca-brava, o toque vibratório do jambu e a riqueza
+                        incomparável dos peixes de água doce.
+                    </p>
+                </div>
+
+                <div class="gastronomy-editorial-grid">
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/norte/Tacaca_culi.webp" alt="Tacacá na Cuia" loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">PARÁ & AMAZONAS</span>
+                            <h3 class="dish-card-title">Tacacá na Cuia</h3>
+                            <p class="dish-card-snippet">Iguaria servida fervente com caldo amarelo de tucupi temperado,
+                                goma de mandioca aveludada, folhas de jambu que anestesiam o paladar e camarão salgado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/norte/Manicoba_culi.webp" alt="Maniçoba Paraense" loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">PARÁ · TRADIÇÃO INDÍGENA</span>
+                            <h3 class="dish-card-title">Maniçoba do Pará</h3>
+                            <p class="dish-card-snippet">Feijoada amazônica preparada com maniva (folhas de
+                                mandioca-brava moídas) cozida por 7 dias ininterruptos para eliminar o ácido cianídrico
+                                antes de receber carnes suínas defumadas.</p>
+                        </div>
+                    </div>
+
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/norte/Açaí_tigela_culi.webp" alt="Açaí com Peixe Frito"
+                                loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">BACIA AMAZÔNICA</span>
+                            <h3 class="dish-card-title">Açaí com Peixe Frito</h3>
+                            <p class="dish-card-snippet">O suco espesso da fruta batida na hora, consumido à mesa em
+                                temperatura ambiente com farinha de tapioca crocante e postas de peixe de rio douradas
+                                na brasa ou óleo.</p>
+                        </div>
+                    </div>
+
+                    <div class="dish-editorial-card">
+                        <div class="dish-card-image-wrap">
+                            <img src="../assets/img/norte/Creme_Cupuacu_culi.webp" alt="Creme de Cupuaçu"
+                                loading="lazy">
+                        </div>
+                        <div class="dish-card-content">
+                            <span class="dish-card-origin">FLORESTA AMAZÔNICA</span>
+                            <h3 class="dish-card-title">Creme de Cupuaçu</h3>
+                            <p class="dish-card-snippet">Sobremesa aveludada preparada com a polpa ácida e perfumada do
+                                cupuaçu silvestre batida com leite condensado e creme de leite, servida bem gelada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TERRITÓRIO E GEOGRAFIA -->
+        <section id="territorio" class="section-padding"
+            style="background-color: #FFFFFF; border-top: 1px solid var(--color-border-light);">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>DOSSIÊ GEOGRÁFICO · VOL. 01</span>
+                        <div class="scale-ruler">
+                            <span>BACIA DO RIO AMAZONAS</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>BIOMA AMAZÔNICO</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Território & Bacias
+                        Fluviais</span>
+                    <h2 class="section-main-title editorial-title-offset">A Bacia Amazônica e as <em>Autoestradas
+                            Vivas</em></h2>
+                </div>
+
+                <div class="territory-feature-grid">
+                    <div class="territory-pullquote-card">
+                        <blockquote class="territory-pullquote">
+                            “No Norte, o tempo não é medido por quilômetros de asfalto, mas pelas cheias e vazantes dos
+                            rios que moldam cada aspecto da vida ribeirinha.”
+                        </blockquote>
+                        <div class="territory-field-notes">
+                            <p style="margin-bottom: 0.85rem;">
+                                Na ausência de rodovias na maior parte da região, os barcos conhecidos como "gaiolas" e
+                                as voadeiras rápidas garantem a circulação de mantimentos, famílias e notícias entre
+                                Manaus, Belém, Santarém e povoados remotos.
+                            </p>
+                            <p style="margin: 0;">
+                                O lendário Encontro das Águas dos rios Negro e Solimões percorre mais de seis
+                                quilômetros lado a lado sem se misturar, devido às diferenças de temperatura, densidade
+                                e velocidade da correnteza.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="territory-feature-photo-wrap">
+                        <img src="../assets/img/norte/amazonas_card.webp" alt="Rio Amazonas e Bacia Hidrográfica"
+                            class="territory-feature-photo">
+                        <div class="territory-photo-caption">
+                            <span>Bacia do Rio Negro e Solimões</span>
+                            <span>03°08′S · 59°54′W</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. DESPACHOS & PANORAMA CULTURAL -->
+        <section id="panorama" class="section-padding bg-offwhite"
+            style="border-top: 1px solid var(--color-border-light);">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <span class="editorial-kicker" style="color: var(--region-accent);">PANORAMA REGIONAL</span>
+                    <h2 class="section-main-title editorial-title-offset">Notícias do <em>Norte</em></h2>
+                </div>
+
+                <div class="panorama-feed-grid">
+                    <article class="panorama-feed-card">
+                        <div>
+                            <div class="panorama-meta-tag">BIODIVERSIDADE & CIÊNCIA</div>
+                            <h3 class="panorama-feed-title">Expedição botânica na Bacia do Rio Negro cataloga 30 novas
+                                espécies de flora medicinal</h3>
+                        </div>
+                        <div class="panorama-feed-source">Fonte: Instituto Nacional de Pesquisas da Amazônia (INPA) ·
+                            Manaus (AM)</div>
+                    </article>
+
+                    <article class="panorama-feed-card">
+                        <div>
+                            <div class="panorama-meta-tag">PATRIMÔNIO ARQUEOLÓGICO</div>
+                            <h3 class="panorama-feed-title">Cerâmicas marajoaras ganham centro de documentação digital
+                                comunitário na Ilha de Marajó</h3>
+                        </div>
+                        <div class="panorama-feed-source">Fonte: Museu Paraense Emílio Goeldi · Belém (PA)</div>
+                    </article>
+
+                    <article class="panorama-feed-card">
+                        <div>
+                            <div class="panorama-meta-tag">TRADIÇÃO POPULAR</div>
+                            <h3 class="panorama-feed-title">Associações folclóricas de Parintins anunciam novos ritos
+                                artísticos para o Bumbódromo 2026</h3>
+                        </div>
+                        <div class="panorama-feed-source">Fonte: Secretaria de Cultura do Amazonas · Parintins (AM)
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. OUTROS CADERNOS REGIONAIS -->
+        <section class="region-switcher-section">
+            <div class="container">
+                <div class="section-header-editorial" style="margin-bottom: 2rem;">
+                    <span class="editorial-kicker">BIBLIOTECA DE CAMPO</span>
+                    <h2 class="section-main-title editorial-title-offset">Explorar Outros <em>Cadernos</em></h2>
+                </div>
+
+                <div class="region-switcher-grid">
+                    <a href="nordeste.html" class="region-switcher-card" style="--card-accent: #C47D2B;">
+                        <span class="region-switcher-num">CADERNO 02</span>
+                        <h4 class="region-switcher-title">Nordeste</h4>
+                        <span class="region-switcher-tag">Mar, Sertão & Resistência Sonora</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+
+                    <a href="centro-oeste.html" class="region-switcher-card" style="--card-accent: #B8532F;">
+                        <span class="region-switcher-num">CADERNO 03</span>
+                        <h4 class="region-switcher-title">Centro-Oeste</h4>
+                        <span class="region-switcher-tag">Planalto, Pantanal & Viola</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+
+                    <a href="sudeste.html" class="region-switcher-card" style="--card-accent: #1E3A63;">
+                        <span class="region-switcher-num">CADERNO 04</span>
+                        <h4 class="region-switcher-title">Sudeste</h4>
+                        <span class="region-switcher-tag">Barroco, Montanhas & Metrópole</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+
+                    <a href="sul.html" class="region-switcher-card" style="--card-accent: #6B538C;">
+                        <span class="region-switcher-num">CADERNO 05</span>
+                        <h4 class="region-switcher-title">Sul</h4>
+                        <span class="region-switcher-tag">Coxilhas, Araucárias & Fogo de Chão</span>
+                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Editorial -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="../index.html" class="brand-logo">
+                <div class="brand-logo-emblem">
+                    <img src="../assets/img/logo.jpg" alt="Brasil in Cena">
+                </div>
+                <div class="brand-logo-text">
+                    <span class="brand-name">Brasil in Cena</span>
+                    <span class="brand-sub">Caderno 01 · Norte</span>
+                </div>
+            </a>
+            <div class="footer-text">Brasil in Cena — Revista Cultural Independente de Memória, Território e Paisagem.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dependências D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../js/regionMap.js?v=11.0"></script>
+    <script>
+        const stateDataNorte = {
+            Amazonas: { code: "UF · AM", capital: "Manaus", bio: "Maior estado do país, coberto pela Floresta Amazônica e cortado pela bacia do Rio Negro e Solimões.", cult: "Festival Folclórico de Parintins (Garantido e Caprichoso), rituais indígenas ancestrais.", food: "Pirarucu de Casaca, Caldo de Tucupi, X-Caboquinho com tucumã fresco." },
+            Pará: { code: "UF · PA", capital: "Belém", bio: "Foz do Rio Amazonas, Ilha de Marajó e entreposto histórico de trocas culturais da Amazônia.", cult: "Círio de Nazaré, Dança do Carimbó, Cerâmica marajoara e tapajônica.", food: "Tacacá na cuia, Maniçoba, Pato no Tucupi, Açaí puro com peixe frito." },
+            Acre: { code: "UF · AC", capital: "Rio Branco", bio: "Fronteira com Peru e Bolívia. Território marcado pelos seringais históricos e pela luta de Chico Mendes.", cult: "Tradição das rodas de ayahuasca, artesanato e cantos sagrados dos povos Yawanawá e Huni Kuin.", food: "Baixaria (carne moída com cuscuz e ovo frito), Saltenha acreana." },
+            Amapá: { code: "UF · AP", capital: "Macapá", bio: "Cortado pela linha do Equador e banhado pelo oceano Atlântico e foz do Rio Amazonas.", cult: "Marabaixo com tambores de madeira e gengibirra, Fortaleza de São José de Macapá.", food: "Camarão no Bafo, Caldeirada de Filhote com tucupi e jambu." },
+            Rondônia: { code: "UF · RO", capital: "Porto Velho", bio: "Polo de transição no sudoeste da Amazônia, cortado pelo caudaloso Rio Madeira e ferrovia Madeira-Mamoré.", cult: "Festa do Divino Espírito Santo no Vale do Guaporé, Boi de Guajará-Mirim.", food: "Tambaqui assado na brasa, Caldo de Piranha temperado com cheiro-verde." },
+            Roraima: { code: "UF · RR", capital: "Boa Vista", bio: "Extremo norte do país, dominado por lavrados e pelo mítico platô de pedra do Monte Roraima.", cult: "Cosmovisões e danças do Parixara dos povos indígenas Macuxi e Yanomami.", food: "Damurida (caldo fervente de peixe com pimentas variadas e beiju de mandioca)." },
+            Tocantins: { code: "UF · TO", capital: "Palmas", bio: "Estado mais jovem da federação, transição biogeográfica entre a Amazônia e os chapadões do Jalapão.", cult: "Congadas e Festejos de Monte do Carmo, artesanato em capim dourado da Mumbuca.", food: "Peixe na folha de bananeira assado na brasa, Paçoca de carne de sol socada no pilão." }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRealD3RegionMap('norte', 'd3-map-norte', (stateName, sigla) => {
+                const d = stateDataNorte[stateName] || { code: `UF · ${sigla || 'BR'}`, capital: "Capital", bio: "Descrição territorial", cult: "Manifestações", food: "Culinária" };
+                const stateNameEl = document.getElementById('state-name');
+                const stateCapEl = document.getElementById('state-capital');
+                const stateBioEl = document.getElementById('state-bio');
+                const stateCultEl = document.getElementById('state-cult');
+                const stateFoodEl = document.getElementById('state-food');
+                const stateCodeEl = document.getElementById('state-code');
+                const activeTagEl = document.getElementById('active-state-tag');
+
+                if (stateNameEl) stateNameEl.textContent = stateName;
+                if (stateCapEl) stateCapEl.textContent = `Capital: ${d.capital}`;
+                if (stateBioEl) stateBioEl.textContent = d.bio;
+                if (stateCultEl) stateCultEl.textContent = d.cult;
+                if (stateFoodEl) stateFoodEl.textContent = d.food;
+                if (stateCodeEl) stateCodeEl.textContent = d.code || `UF · ${sigla}`;
+                if (activeTagEl) activeTagEl.textContent = `${stateName.toUpperCase()} · ${d.code}`;
+            });
+
+            // Inicializar Exposição Cultural Sincronizada com suporte a clique nos títulos
+            initStickyCultureExhibition({
+                sectionId: 'cultura',
+                imgId: 'norte-cultura-img',
+                hudTitleId: 'norte-hud-title'
+            });
+        });
+    </script>
+</body>
+
+</html>
