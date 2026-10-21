@@ -298,7 +298,7 @@
     </main>
 
     <!-- CALENDÁRIO ANUAL DE FESTAS E MANIFESTAÇÕES (MOVIDO DA HOME) -->
-    <section id="calendario" class="events-calendar-section" style="padding: 4.5rem 0; border-top: 1px solid var(--color-border-light); background-color: var(--color-offwhite-warm);">
+    <section id="calendario" class="events-calendar-section" style="padding: 4.5rem 0; border-top: 1px solid var(--color-border-light); background-color: var(--color-offwhite-warm); scroll-margin-top: 74px;">
         <div class="container">
             <div class="section-header-editorial">
                 <div class="editorial-folio">
@@ -556,6 +556,20 @@
             }
         }
         render('todas');
+
+        if (window.location.hash === '#calendario') {
+            const scrollToCalendar = () => {
+                const calEl = document.getElementById('calendario');
+                if (!calEl) return;
+                const headerEl = document.querySelector('.site-header');
+                const headerOffset = headerEl ? headerEl.offsetHeight : 74;
+                const targetTop = calEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: Math.max(0, targetTop), behavior: 'instant' });
+            };
+            scrollToCalendar();
+            requestAnimationFrame(scrollToCalendar);
+            setTimeout(scrollToCalendar, 120);
+        }
     });
     </script>
 </body>
