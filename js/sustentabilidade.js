@@ -12,11 +12,7 @@ const SUSTENTABILIDADE_DOSSIER_DATA = {
                 category: "01 — Energia limpa",
                 subtag: "Sistemas Isolados & Fotovoltaica",
                 title: "Sol Entre Igarapés: A Transição dos Sistemas Isolados na Amazônia",
-<<<<<<< HEAD
                 image: "../assets/img/norte/hero_norte_amazo.webp",
-=======
-                image: "../assets/img/norte/bacia_amazonica-1.webp",
->>>>>>> 199c23b (feat(ux): add Terra, Tecnologia & Futuro section, 3-level progressive disclosure, contrast fixes and simplified labels)
                 imageAlt: "Floresta Amazônica e rios da Região Norte sob luz solar",
                 imageCaption: "Bacia Amazônica · Sistemas Isolados e Transição Energética",
                 imageCoord: "02°26′S · 54°42′W",
