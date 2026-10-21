@@ -124,17 +124,43 @@ function initPlayfulCursor() {
 }
 
 /* ============================================================
-   2. MOBILE NAV TOGGLE
+   2. MOBILE NAV TOGGLE (ACESSÍVEL COM ESC E CLIQUE EXTERNO)
    ============================================================ */
 function initMobileNav() {
     const toggleBtn = document.getElementById('nav-mobile-toggle');
-    const nav = document.getElementById('site-nav');
+    const nav = document.getElementById('site-nav') || document.querySelector('.site-nav');
     if (!toggleBtn || !nav) return;
-    toggleBtn.addEventListener('click', function() {
-        nav.classList.toggle('is-open');
+
+    function closeMenu() {
+        nav.classList.remove('is-open');
+        toggleBtn.classList.remove('is-active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = nav.classList.toggle('is-open');
+        toggleBtn.classList.toggle('is-active', isOpen);
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+
     nav.querySelectorAll('.nav-link').forEach(function(link) {
-        link.addEventListener('click', function() { nav.classList.remove('is-open'); });
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+
+    document.addEventListener('click', function(e) {
+        if (nav.classList.contains('is-open') && !nav.contains(e.target) && !toggleBtn.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+            closeMenu();
+            toggleBtn.focus();
+        }
     });
 }
 
@@ -159,6 +185,19 @@ function initRegionExplorer() {
         'sul': '05 / 05'
     };
 
+    // Tornar os cards de caderno regional (.asym-entry) clicáveis por inteiro
+    document.querySelectorAll('.asym-entry').forEach(card => {
+        const footerLink = card.querySelector('.asym-footer-link');
+        if (footerLink && footerLink.getAttribute('href')) {
+            const href = footerLink.getAttribute('href');
+            card.setAttribute('data-href', href);
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a, button')) return;
+                window.location.href = href;
+            });
+        }
+    });
+
     if (!previewName) return;
 
     window.updateRegionPreview = function(regionId) {
@@ -168,7 +207,7 @@ function initRegionExplorer() {
 
         if (previewKicker) {
             const num = REGION_NUMBERS[normId] || '01 / 05';
-            previewKicker.textContent = `CADERNO REGIONAL ${num}`;
+            previewKicker.textContent = `REGIÃO ${num}`;
         }
 
         previewName.textContent = data.nome;
@@ -201,6 +240,7 @@ function initRegionExplorer() {
         if (previewLink) {
             previewLink.href = `regioes/${data.id}.html`;
             previewLink.style.borderColor = data.cor;
+            previewLink.textContent = `Conhecer a Região ${data.nome} →`;
         }
 
         document.querySelectorAll('.territory-chip-btn, .hud-chip').forEach(btn => {
@@ -238,6 +278,73 @@ function initStickyExhibition() {
 
     if (!exhibitionBlocks.length || !mediaImage) return;
 
+    function splitLeadSentenceHome(rawText) {
+        const text = (rawText || '').trim().replace(/\s+/g, ' ');
+        const match = text.match(/^(.{35,}?\.)\s+(.+)$/);
+        if (!match) return null;
+        return { lead: match[1].trim(), rest: match[2].trim() };
+    }
+
+    // Injetar miniatura contextual para mobile e estruturar ficha progressiva (<details> para Nível 2/3)
+    exhibitionBlocks.forEach((block) => {
+        const imgSrc = block.dataset.img;
+        const titleEl = block.querySelector('.exhibition-item-title');
+        const titleText = titleEl ? titleEl.innerText.replace(/clique.*/i, '').trim() : 'Manifestação Cultural';
+
+        if (imgSrc && !block.querySelector('.exhibition-mobile-thumb')) {
+            const thumbWrapper = document.createElement('div');
+            thumbWrapper.className = 'exhibition-mobile-thumb';
+            thumbWrapper.innerHTML = `<img src="${imgSrc}" alt="${titleText}" loading="lazy">`;
+            if (titleEl && titleEl.parentNode === block) {
+                titleEl.insertAdjacentElement('afterend', thumbWrapper);
+            } else {
+                block.prepend(thumbWrapper);
+            }
+        }
+
+        const textEl = block.querySelector('.exhibition-item-text');
+        const metaBlock = block.querySelector('.exhibition-meta-grid') ||
+            (textEl && textEl.nextElementSibling && !textEl.nextElementSibling.classList.contains('listening-station')
+                ? textEl.nextElementSibling
+                : null);
+
+        if (!block.querySelector('details.exhibition-meta-drawer') && (textEl || metaBlock)) {
+            const detailsEl = document.createElement('details');
+            detailsEl.className = 'exhibition-meta-drawer';
+
+            const summaryEl = document.createElement('summary');
+            summaryEl.className = 'exhibition-meta-summary';
+            summaryEl.setAttribute('aria-label', `Ver origem e história de ${titleText}`);
+            detailsEl.appendChild(summaryEl);
+
+            const contentWrap = document.createElement('div');
+            contentWrap.className = 'exhibition-meta-drawer-content';
+
+            if (textEl) {
+                const split = splitLeadSentenceHome(textEl.textContent);
+                if (split) {
+                    textEl.textContent = split.lead;
+                    const extraP = document.createElement('p');
+                    extraP.style.cssText = 'font-size: 0.9rem; line-height: 1.65; color: rgba(247, 244, 239, 0.92); margin: 0 0 0.85rem 0;';
+                    extraP.textContent = split.rest;
+                    contentWrap.appendChild(extraP);
+                }
+            }
+
+            if (metaBlock) {
+                metaBlock.style.marginTop = '0';
+                metaBlock.style.paddingTop = '0';
+                metaBlock.style.borderTop = 'none';
+                metaBlock.parentNode.insertBefore(detailsEl, metaBlock);
+                contentWrap.appendChild(metaBlock);
+            } else if (textEl) {
+                textEl.insertAdjacentElement('afterend', detailsEl);
+            }
+
+            detailsEl.appendChild(contentWrap);
+        }
+    });
+
     let activeIndex = -1;
     let isManualScrolling = false;
     let manualScrollTimer = null;
@@ -251,13 +358,15 @@ function initStickyExhibition() {
         const targetBlock = exhibitionBlocks[idx];
 
         exhibitionBlocks.forEach((b, i) => {
-            if (i === idx) b.classList.add('active');
-            else b.classList.remove('active');
+            const isTarget = i === idx;
+            b.classList.toggle('active', isTarget);
+            b.classList.toggle('is-active', isTarget);
         });
 
         navButtons.forEach((btn, i) => {
-            if (i === idx) btn.classList.add('active');
-            else btn.classList.remove('active');
+            const isTarget = i === idx;
+            btn.classList.toggle('active', isTarget);
+            btn.classList.toggle('is-active', isTarget);
         });
 
         const titleEl = targetBlock.querySelector('.exhibition-item-title');
@@ -304,7 +413,8 @@ function initStickyExhibition() {
 
     exhibitionBlocks.forEach((block, idx) => {
         block.style.cursor = 'pointer';
-        block.addEventListener('click', () => {
+        block.addEventListener('click', (e) => {
+            if (e.target.closest('button, a, summary, details')) return;
             activateIndex(idx, true);
         });
 
@@ -756,7 +866,22 @@ function initSmooothyShowcase() {
     const grid = document.getElementById('smooothy-objects-grid');
     if (!grid || !window.BRASIL_DATA || !window.BRASIL_DATA.objetosVivos) return;
 
-    grid.innerHTML = window.BRASIL_DATA.objetosVivos.map((item, idx) => `
+    function splitDesc(rawText) {
+        const text = (rawText || '').trim().replace(/\s+/g, ' ');
+        const match = text.match(/^(.{30,}?\.)\s+(.+)$/);
+        if (!match) return { lead: text, rest: '' };
+        return { lead: match[1].trim(), rest: match[2].trim() };
+    }
+
+    grid.innerHTML = window.BRASIL_DATA.objetosVivos.map((item, idx) => {
+        const split = splitDesc(item.descricao);
+        const drawerHtml = split.rest
+            ? `<details class="smooothy-more-drawer">
+                   <summary>Como é feito</summary>
+                   <div class="smooothy-more-body">${split.rest}</div>
+               </details>`
+            : '';
+        return `
         <article class="smooothy-card" data-region="${item.regiao}">
             <div class="smooothy-canvas-backdrop" style="--card-pure-color: ${item.corRegiao};">
                 <img class="smooothy-object-figure" src="${item.imagem}" alt="${item.nome}" loading="lazy">
@@ -764,14 +889,16 @@ function initSmooothyShowcase() {
             <div class="smooothy-card-body">
                 <span class="smooothy-meta-mono">${item.origem} · ${item.coord}</span>
                 <h3 class="smooothy-card-title">${item.nome}</h3>
-                <p class="smooothy-card-desc">${item.descricao}</p>
+                <p class="smooothy-card-desc">${split.lead}</p>
+                ${drawerHtml}
                 <div class="smooothy-card-footer">
                     <span>${item.material}</span>
                     <strong style="color: ${item.corRegiao};">0${idx + 1}</strong>
                 </div>
             </div>
         </article>
-    `).join('');
+        `;
+    }).join('');
 
     // Efeito de Tilt 3D com física realista ao passar o cursor
     grid.querySelectorAll('.smooothy-card').forEach(card => {
@@ -811,6 +938,13 @@ function initGastronomySection() {
         'Sul': '#6B538C'
     };
 
+    function splitDishDesc(rawText) {
+        const text = (rawText || '').trim().replace(/\s+/g, ' ');
+        const match = text.match(/^(.{30,}?\.)\s+(.+)$/);
+        if (!match) return { lead: text, rest: '' };
+        return { lead: match[1].trim(), rest: match[2].trim() };
+    }
+
     function renderDishes(filterRegion) {
         const dishes = filterRegion === 'todas'
             ? BRASIL_DATA.gastronomia
@@ -818,10 +952,12 @@ function initGastronomySection() {
 
         gastronomyGrid.innerHTML = dishes.map((dish, idx) => {
             const regColor = REGION_COLOR_MAP[dish.regiao] || '#06352F';
+            const split = splitDishDesc(dish.descricao);
+            const fullOrigemText = split.rest ? `${split.rest} ${dish.origem}` : dish.origem;
             return `
                 <div class="dish-flip-card" data-dish-id="${dish.id}">
                     <div class="dish-flip-inner">
-                        <!-- FRENTE: FOTOGRAFIA EDITORIAL E RESUMO -->
+                        <!-- FRENTE (NÍVEL 1): FOTOGRAFIA EDITORIAL E SÍNTESE DE 1 FRASE -->
                         <div class="dish-flip-face dish-flip-front">
                             <div class="dish-card-media-wrap">
                                 <img src="${dish.imagem}" alt="${dish.nome}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop'">
@@ -830,36 +966,36 @@ function initGastronomySection() {
                             <div class="dish-front-info">
                                 <span class="dish-matriz-kicker">Tradição de ${dish.regiao}</span>
                                 <h3 class="dish-dossier-title">${dish.nome}</h3>
-                                <p class="dish-dossier-snippet">${dish.descricao}</p>
-                                <button class="dish-flip-trigger-btn" type="button" aria-label="Ver Ficha Técnica">
-                                    <span>Folhear Ficha de Campo</span>
+                                <p class="dish-dossier-snippet">${split.lead}</p>
+                                <button class="dish-flip-trigger-btn" type="button" aria-label="Ver Receita e História">
+                                    <span>Ver receita e história</span>
                                     <span class="flip-icon">↻</span>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- VERSO: FICHA TÉCNICA MILIMETRADA DE RECEITA -->
+                        <!-- VERSO (NÍVEIS 2 & 3): RECEITA E HISTÓRIA DO PRATO -->
                         <div class="dish-flip-face dish-flip-back grid-cartographic">
                             <div class="dish-recipe-sheet">
                                 <div class="dish-sheet-header">
-                                    <span class="sheet-stamp">ARQUIVO CULINÁRIO · DOC. 0${idx + 1}</span>
+                                    <span class="sheet-stamp">PRATOS E TRADIÇÕES · 0${idx + 1}</span>
                                     <span class="sheet-badge-region" style="background: ${regColor}">${dish.regiao}</span>
                                 </div>
                                 <h4 class="dish-back-title">${dish.nome}</h4>
                                 <div class="dish-back-section">
-                                    <strong>Território & Origem:</strong>
-                                    <p>${dish.origem}</p>
+                                    <strong>Origem e História:</strong>
+                                    <p>${fullOrigemText}</p>
                                 </div>
                                 <div class="dish-back-section">
-                                    <strong>Ingredientes Chave:</strong>
+                                    <strong>Ingredientes Principais:</strong>
                                     <p>${dish.ingredientes}</p>
                                 </div>
                                 <div class="dish-back-section">
-                                    <strong>Registro Etnográfico:</strong>
+                                    <strong>Curiosidade e Tradição:</strong>
                                     <p>${dish.curiosidade}</p>
                                 </div>
                                 <button class="dish-flip-back-btn" type="button">
-                                    <span>← Voltar à Fotografia</span>
+                                    <span>← Voltar à foto</span>
                                 </button>
                             </div>
                         </div>

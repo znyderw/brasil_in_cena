@@ -16,7 +16,7 @@
         rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css?v=13.0">
+    <link rel="stylesheet" href="css/main.css?v=16.0">
 </head>
 
 <body>
@@ -34,21 +34,21 @@
                 </div>
             </a>
             <nav class="site-nav" id="site-nav">
-                <a href="#caderno-regioes" class="nav-link nav-catalog">Cadernos<sup class="nav-sup">05</sup></a>
+                <a href="#caderno-regioes" class="nav-link nav-catalog">Regiões<sup class="nav-sup">05</sup></a>
                 <a href="#mapa" class="nav-link nav-catalog">Mapa<sup class="nav-sup">27</sup></a>
-                <a href="#culturas" class="nav-link nav-catalog">Manifestações<sup class="nav-sup">05</sup></a>
-                <a href="#gastronomia" class="nav-link nav-catalog">Cozinhas<sup class="nav-sup">08</sup></a>
+                <a href="#culturas" class="nav-link nav-catalog">Culturas<sup class="nav-sup">05</sup></a>
+                <a href="#gastronomia" class="nav-link nav-catalog">Pratos<sup class="nav-sup">08</sup></a>
                 <a href="noticias.html" class="nav-link nav-catalog">Notícias<sup class="nav-sup">09</sup></a>
-                <a href="#mapa" class="nav-link nav-atlas-pill" id="nav-atlas-btn">Explorar Território</a>
+                <a href="#mapa" class="nav-link nav-atlas-pill" id="nav-atlas-btn">Explore o mapa</a>
             </nav>
-            <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Menu">
+            <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="site-nav">
                 <span></span><span></span>
             </button>
         </div>
     </header>
 
     <main>
-        <!-- 1. HERO EDITORIAL — ABERTURA PANORÂMICA COM IMAGEM, TIPOGRAFIA OFFSET E DEGRADÊ -->
+        <!-- 1. HERO EDITORIAL — ABERTURA PANORÂMICO COM IMAGEM, TIPOGRAFIA OFFSET E DEGRADÊ -->
         <section class="home-hero hero-panoramic-cover">
             <div class="hero-bg-overlay"></div>
             <div class="container hero-content-relative">
@@ -78,7 +78,7 @@
                         <div class="hero-scroll-cue">
                             <a href="#mapa" class="hero-scroll-link">
                                 <span class="cue-line"></span>
-                                <span class="cue-text">Explorar o Território</span>
+                                <span class="cue-text">Explore o mapa</span>
                                 <span class="cue-arrow">↓</span>
                             </a>
                         </div>
@@ -99,18 +99,18 @@
                 <!-- Cabeçalho Editorial com Régua de Escala -->
                 <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
                     <div class="editorial-folio">
-                        <span>EXPLORAÇÃO EDITORIAL · VOL. 02</span>
+                        <span>MAPA INTERATIVO DO BRASIL</span>
                         <div class="scale-ruler">
                             <span>ESCALA 1:100.000</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
                         <span>TERRITÓRIO & IDENTIDADE</span>
                     </div>
-                    <span class="editorial-kicker">Cartografia Viva</span>
+                    <span class="editorial-kicker">Explore o mapa</span>
                     <h2 class="section-main-title editorial-title-offset">O Desenho do <em>Território</em></h2>
                     <p class="section-lead-text">
                         Cinco macrorregiões com ecossistemas, fluxos de povoamento e matrizes expressivas distintas.
-                        Passe o cursor sobre os estados no mapa ou selecione uma região para desdobrar o arquivo de campo.
+                        Toque ou clique em qualquer estado no mapa — ou selecione uma região nos botões abaixo — para conhecer cada território.
                     </p>
                 </div>
 
@@ -126,7 +126,7 @@
                         <span class="crop-mark crop-br">+</span>
 
                         <div class="territory-map-header">
-                            <span>Vinte e Sete Estados · Prancha D3</span>
+                            <span>Explore o mapa · 27 Estados</span>
                             <span id="territory-active-state-indicator">BRASIL · 27 ESTADOS</span>
                         </div>
 
@@ -149,7 +149,7 @@
 
                     <!-- Lado Direito: Ficha / Dossiê Editorial da Região Ativa -->
                     <div class="territory-dossier-panel">
-                        <div class="territory-dossier-num" id="preview-kicker">CADERNO REGIONAL 01 / 05</div>
+                        <div class="territory-dossier-num" id="preview-kicker">REGIÃO 01 / 05</div>
                         <h3 class="territory-dossier-title editorial-serif" id="preview-name">Norte</h3>
 
                         <div class="territory-dossier-meta" id="preview-meta">
@@ -176,7 +176,7 @@
                                 </div>
                             </div>
                             <div class="territory-pillar-row">
-                                <span class="territory-pillar-label">Cozinha & Saberes da Terra:</span>
+                                <span class="territory-pillar-label">Pratos e tradições:</span>
                                 <div class="territory-pillar-tags" id="preview-sabores">
                                     <span class="territory-tag-item">Tacacá</span>
                                     <span class="territory-tag-item">Maniçoba</span>
@@ -186,7 +186,7 @@
                         </div>
 
                         <a id="preview-link" href="regioes/norte.html" class="territory-explore-link">
-                            Acessar Caderno Regional <span class="link-arrow">→</span>
+                            Conhecer a Região <span class="link-arrow">→</span>
                         </a>
                     </div>
 
@@ -200,13 +200,13 @@
 
                 <div class="section-header-editorial">
                     <div class="editorial-folio">
-                        <span>SUMÁRIO EDITORIAL · AS CINCO GEOGRAFIAS</span>
-                        <span>5 CADERNOS · 27 ESTADOS</span>
+                        <span>CONHEÇA AS REGIÕES DO BRASIL</span>
+                        <span>5 REGIÕES · 27 ESTADOS</span>
                     </div>
-                    <span class="editorial-kicker">Capas de Zine</span>
-                    <h2 class="section-main-title editorial-title-offset">Cinco Territórios, <em>Cinco Pulsações</em></h2>
+                    <span class="editorial-kicker">Conheça o território</span>
+                    <h2 class="section-main-title editorial-title-offset">Cinco Regiões, <em>Cinco Pulsações</em></h2>
                     <p class="section-lead-text">
-                        Cada região tratada como uma publicação independente com suas próprias matrizes sonoras, biomas e técnicas de sobrevivência.
+                        Explore as cinco regiões do Brasil, com seus biomas, festas populares, sotaques e pratos tradicionais.
                     </p>
                 </div>
 
@@ -217,7 +217,7 @@
                     <article class="asym-entry asym-col-wide" data-region="norte">
                         <div class="asym-body grid-cartographic">
                             <div class="asym-top-bar">
-                                <span class="asym-num">CADERNO 01</span>
+                                <span class="asym-num">REGIÃO 01</span>
                                 <span class="asym-coord">02°26′S · 54°42′W · AMAZÔNIA</span>
                             </div>
                             <h3 class="asym-title">Norte — O Império das Águas e da Floresta</h3>
@@ -231,7 +231,7 @@
                                 <span class="asym-tag">Tacacá</span>
                                 <span class="asym-tag">Boi-Bumbá</span>
                             </div>
-                            <a href="regioes/norte.html" class="asym-footer-link">Abrir Caderno Amazônico <span>→</span></a>
+                            <a href="regioes/norte.html" class="asym-footer-link">Explorar Região Norte <span>→</span></a>
                         </div>
                         <img class="asym-thumb" src="assets/img/norte/hero_norte_amazo.webp" alt="Amazônia" loading="lazy">
                     </article>
@@ -240,7 +240,7 @@
                     <article class="asym-entry asym-col-7" data-region="nordeste">
                         <div class="asym-body">
                             <div class="asym-top-bar">
-                                <span class="asym-num">CADERNO 02</span>
+                                <span class="asym-num">REGIÃO 02</span>
                                 <span class="asym-coord">08°03′S · 34°52′W · SERTÃO & MAR</span>
                             </div>
                             <h3 class="asym-title">Nordeste — Mar, Sertão e Resistência Sonora</h3>
@@ -255,7 +255,7 @@
                                 <span class="asym-tag">Acarajé</span>
                                 <span class="asym-tag">Cordel</span>
                             </div>
-                            <a href="regioes/nordeste.html" class="asym-footer-link">Abrir Caderno Nordeste <span>→</span></a>
+                            <a href="regioes/nordeste.html" class="asym-footer-link">Explorar Região Nordeste <span>→</span></a>
                         </div>
                     </article>
 
@@ -263,7 +263,7 @@
                     <article class="asym-entry asym-col-5" data-region="centro-oeste">
                         <div class="asym-body grid-cartographic">
                             <div class="asym-top-bar">
-                                <span class="asym-num">CADERNO 03</span>
+                                <span class="asym-num">REGIÃO 03</span>
                                 <span class="asym-coord">15°47′S · 47°52′W · PLANALTO</span>
                             </div>
                             <h3 class="asym-title">Centro-Oeste — Planalto, Pantanal & Viola</h3>
@@ -276,7 +276,7 @@
                                 <span class="asym-tag">Pequi</span>
                                 <span class="asym-tag">Viola de Cocho</span>
                             </div>
-                            <a href="regioes/centro-oeste.html" class="asym-footer-link">Abrir Caderno Centro-Oeste <span>→</span></a>
+                            <a href="regioes/centro-oeste.html" class="asym-footer-link">Explorar Região Centro-Oeste <span>→</span></a>
                         </div>
                     </article>
 
@@ -284,7 +284,7 @@
                     <article class="asym-entry asym-col-6" data-region="sudeste">
                         <div class="asym-body">
                             <div class="asym-top-bar">
-                                <span class="asym-num">CADERNO 04</span>
+                                <span class="asym-num">REGIÃO 04</span>
                                 <span class="asym-coord">20°23′S · 43°50′W · MONTANHA & COSTA</span>
                             </div>
                             <h3 class="asym-title">Sudeste — Barroco do Ouro e Vertigem Urbana</h3>
@@ -298,7 +298,7 @@
                                 <span class="asym-tag">Pão de Queijo</span>
                                 <span class="asym-tag">Samba</span>
                             </div>
-                            <a href="regioes/sudeste.html" class="asym-footer-link">Abrir Caderno Sudeste <span>→</span></a>
+                            <a href="regioes/sudeste.html" class="asym-footer-link">Explorar Região Sudeste <span>→</span></a>
                         </div>
                     </article>
 
@@ -306,7 +306,7 @@
                     <article class="asym-entry asym-col-6" data-region="sul">
                         <div class="asym-body grid-cartographic">
                             <div class="asym-top-bar">
-                                <span class="asym-num">CADERNO 05</span>
+                                <span class="asym-num">REGIÃO 05</span>
                                 <span class="asym-coord">29°45′S · 53°48′W · PAMPA & PINHAIS</span>
                             </div>
                             <h3 class="asym-title">Sul — Campos de Vento, Geada e Tropeiros</h3>
@@ -320,7 +320,7 @@
                                 <span class="asym-tag">Chimarrão</span>
                                 <span class="asym-tag">Carreteiro</span>
                             </div>
-                            <a href="regioes/sul.html" class="asym-footer-link">Abrir Caderno Sul <span>→</span></a>
+                            <a href="regioes/sul.html" class="asym-footer-link">Explorar Região Sul <span>→</span></a>
                         </div>
                     </article>
 
@@ -500,12 +500,12 @@
                 <div class="section-header-editorial">
                     <div class="editorial-folio">
                         <span>SABORES E TERRITÓRIO</span>
-                        <span>ALMANAQUE DE CAMPO</span>
+                        <span>PRATOS E TRADIÇÕES</span>
                     </div>
-                    <span class="editorial-kicker">Cozinhas Tradicionais</span>
+                    <span class="editorial-kicker">Pratos e tradições</span>
                     <h2 class="section-main-title editorial-title-offset">A Terra que se <em>Come</em></h2>
                     <p class="section-lead-text">
-                        A gastronomia brasileira nasce da fermentação da mandioca-brava, dos óleos vegetais de matriz africana e das técnicas de fogo e salga tropeiras. Clique em qualquer card para desdobrar a ficha técnica de receita e notas etnográficas.
+                        A gastronomia brasileira nasce da fermentação da mandioca-brava, dos óleos vegetais de matriz africana e das técnicas de fogo e salga tropeiras. Clique em qualquer card para ver a receita, os ingredientes e a história do prato.
                     </p>
                 </div>
 
@@ -540,7 +540,7 @@
                         <span>ATUALIDADES E PATRIMÔNIO</span>
                         <span>BRASIL HOJE</span>
                     </div>
-                    <span class="editorial-kicker">Panorama Contemporâneo</span>
+                    <span class="editorial-kicker">Notícias e atualidades</span>
                     <h2 class="section-main-title editorial-title-offset">A Cultura Não Está <em>Parada</em></h2>
                     <p class="section-lead-text">
                         O Brasil in Cena documenta como saberes ancestrais dialogam com preservação ambiental, juventude e a vida urbana hoje.
@@ -563,14 +563,14 @@
                             </p>
                             <a href="noticias.html" class="chapter-read-link"
                                 style="color: var(--color-darkgreen); border-color: var(--color-darkgreen); font-family: var(--font-heading); font-weight: 700;">
-                                Ler Matéria Completa no Panorama <span class="link-arrow">→</span>
+                                Ler notícia completa <span class="link-arrow">→</span>
                             </a>
                         </div>
                     </article>
 
                     <!-- Lista de Despachos Regionais -->
                     <div class="home-dispatch-side-list">
-                        <div class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
+                        <a href="noticias.html" class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
                             <span class="panorama-meta-tag">NORDESTE · SALVAGUARDA</span>
                             <h4 class="side-dispatch-title editorial-serif">
                                 Mestres do Frevo e do Maracatu Criam Novas Escolas de Transmissão Oral em Olinda
@@ -578,9 +578,9 @@
                             <p style="font-size: 0.88rem; color: var(--text-muted-dark); line-height: 1.6;">
                                 Oficinas gratuitas unem anciãos de nações centenárias a jovens percussionistas na preservação de toques tradicionais.
                             </p>
-                        </div>
+                        </a>
 
-                        <div class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
+                        <a href="noticias.html" class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
                             <span class="panorama-meta-tag">CENTRO-OESTE · BIODIVERSIDADE</span>
                             <h4 class="side-dispatch-title editorial-serif">
                                 O Retorno das Águas no Pantanal e a Retomada dos Festivais da Viola de Cocho
@@ -588,9 +588,9 @@
                             <p style="font-size: 0.88rem; color: var(--text-muted-dark); line-height: 1.6;">
                                 Após temporadas severas de estiagem, ribeirinhos de Corumbá celebram o renascimento da pesca artesanal e do cururu pantaneiro.
                             </p>
-                        </div>
+                        </a>
 
-                        <div class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
+                        <a href="noticias.html" class="side-dispatch-card" style="border: var(--border-tactile); border-radius: var(--radius-card); box-shadow: var(--shadow-tactile-sm);">
                             <span class="panorama-meta-tag">SUDESTE & SUL · PATRIMÔNIO</span>
                             <h4 class="side-dispatch-title editorial-serif">
                                 Restauro de Imagens Barrocas em Minas e Levantamento do Fandango Caiçara
@@ -598,7 +598,7 @@
                             <p style="font-size: 0.88rem; color: var(--text-muted-dark); line-height: 1.6;">
                                 Projetos de conservação com universidades mapeiam ateliês tradicionais e mestres luthieres no litoral paranaense e paulista.
                             </p>
-                        </div>
+                        </a>
 
                         <div style="margin-top: 0.5rem;">
                             <a href="noticias.html" class="btn-editorial btn-primary"
@@ -630,14 +630,14 @@
 
                     <div class="colophon-issn-bar">
                         <span class="issn-dot">·</span>
-                        <span class="issn-vol">VOLUME 02 · EDIÇÃO 2026 · ZINE DIGITAL</span>
+                        <span class="issn-vol">VOLUME 02 · EDIÇÃO 2026 ·</span>
                     </div>
                 </div>
 
                 <!-- Colunas de Navegação estilo Sumário -->
                 <div class="colophon-nav-cols">
                     <div class="colophon-col">
-                        <h4 class="colophon-col-title">Cadernos Regionais</h4>
+                        <h4 class="colophon-col-title">Regiões do Brasil</h4>
                         <ul class="colophon-list">
                             <li><a href="regioes/norte.html">01 · Norte <span class="colophon-sub">Amazônia</span></a></li>
                             <li><a href="regioes/nordeste.html">02 · Nordeste <span class="colophon-sub">Sertão & Litoral</span></a></li>
@@ -648,13 +648,13 @@
                     </div>
 
                     <div class="colophon-col">
-                        <h4 class="colophon-col-title">Arquivos & Índices</h4>
+                        <h4 class="colophon-col-title">Seções do Site</h4>
                         <ul class="colophon-list">
-                            <li><a href="#mapa">Mapa do Território <sup class="nav-sup">27</sup></a></li>
+                            <li><a href="#mapa">Explore o mapa <sup class="nav-sup">27</sup></a></li>
                             <li><a href="#culturas">Manifestações Vivas <sup class="nav-sup">05</sup></a></li>
-                            <li><a href="#gastronomia">Almanaque de Cozinhas <sup class="nav-sup">08</sup></a></li>
+                            <li><a href="#gastronomia">Pratos e tradições <sup class="nav-sup">08</sup></a></li>
                             <li><a href="noticias.html#calendario">Calendário de Festas <sup class="nav-sup">12</sup></a></li>
-                            <li><a href="noticias.html">Notícias <sup class="nav-sup">09</sup></a></li>
+                            <li><a href="noticias.html">Notícias da região <sup class="nav-sup">09</sup></a></li>
                         </ul>
                     </div>
                 </div>
@@ -680,9 +680,9 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <!-- Scripts do Brasil in Cena -->
-    <script src="data/brasilData.js?v=13.0"></script>
-    <script src="js/main.js?v=13.0"></script>
-    <script src="js/brazilMap.js?v=13.0"></script>
+    <script src="data/brasilData.js?v=16.0"></script>
+    <script src="js/main.js?v=16.0"></script>
+    <script src="js/brazilMap.js?v=16.0"></script>
 </body>
 
 </html>

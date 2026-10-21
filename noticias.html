@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=16.0">
     <style>
         /* ── Estilos específicos da página de Notícias ── */
         .noticias-hero {
@@ -243,15 +243,22 @@
                     <span class="brand-sub">Revista Cultural</span>
                 </div>
             </a>
-            <nav class="site-nav">
+            <nav class="site-nav" id="site-nav">
                 <a href="index.html" class="nav-link">← Home</a>
                 <a href="regioes/norte.html" class="nav-link">Norte</a>
                 <a href="regioes/nordeste.html" class="nav-link">Nordeste</a>
                 <a href="regioes/centro-oeste.html" class="nav-link">Centro-Oeste</a>
                 <a href="regioes/sudeste.html" class="nav-link">Sudeste</a>
                 <a href="regioes/sul.html" class="nav-link">Sul</a>
+                <a href="#calendario" class="nav-link">Calendário</a>
                 <a href="noticias.html" class="nav-link nav-link-btn">Notícias</a>
             </nav>
+            <div class="header-mobile-actions">
+                <a href="index.html" class="nav-back-pill-mobile" aria-label="Voltar à página inicial">← Brasil</a>
+                <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="site-nav">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -507,8 +514,36 @@
         renderMonthEvents("JUN");
     }
 
-    // Carregar dados
+    // Carregar dados e menu mobile
     document.addEventListener('DOMContentLoaded', async () => {
+        const toggleBtn = document.getElementById('nav-mobile-toggle');
+        const nav = document.getElementById('site-nav');
+        if (toggleBtn && nav) {
+            const closeMenu = () => {
+                nav.classList.remove('is-open');
+                toggleBtn.classList.remove('is-active');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            };
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = nav.classList.toggle('is-open');
+                toggleBtn.classList.toggle('is-active', isOpen);
+                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+            nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('is-open') && !nav.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+                    closeMenu();
+                    toggleBtn.focus();
+                }
+            });
+        }
+
         initEventsCalendar();
         try {
             const res = await fetch('data/noticias.json');

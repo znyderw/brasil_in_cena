@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/main.css?v=11.0">
+    <link rel="stylesheet" href="../css/main.css?v=16.0">
     <style>
         :root {
             --region-accent: #C47D2B;
@@ -34,15 +34,22 @@
                     <span class="brand-sub">Revista Cultural</span>
                 </div>
             </a>
-            <nav class="site-nav">
+            <nav class="site-nav" id="site-nav">
                 <a href="../index.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;">← Voltar
                     ao Brasil</a>
                 <a href="#mapa-estados" class="nav-link">Mapa<sup class="nav-sup">09</sup></a>
                 <a href="#cultura" class="nav-link">Culturas<sup class="nav-sup">04</sup></a>
                 <a href="#gastronomia" class="nav-link">Cozinhas<sup class="nav-sup">04</sup></a>
                 <a href="#territorio" class="nav-link">Território</a>
+                <a href="#sustentabilidade" class="nav-link">Futuro<sup class="nav-sup">04</sup></a>
                 <a href="#panorama" class="nav-link">Notícias</a>
             </nav>
+            <div class="header-mobile-actions">
+                <a href="../index.html" class="nav-back-pill-mobile" aria-label="Voltar à página inicial">← Brasil</a>
+                <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="site-nav">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -125,18 +132,17 @@
             <div class="container">
                 <div class="section-header-editorial">
                     <div class="editorial-folio">
-                        <span>PRANCHA CARTOGRÁFICA · D3.JS</span>
+                        <span>MAPA DOS ESTADOS</span>
                         <div class="scale-ruler">
                             <span>ESCALA 1:50.000</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
-                        <span>GEOJSON IBGE OFICIAL</span>
+                        <span>DADOS DO IBGE</span>
                     </div>
-                    <span class="editorial-kicker" style="color: var(--region-accent);">Cartografia Interativa</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Explore o mapa</span>
                     <h2 class="section-main-title editorial-title-offset">Os Nove Estados do <em>Nordeste</em></h2>
                     <p class="section-lead-text">
-                        Clique ou passe o cursor sobre qualquer unidade federativa para carregar os dados geográficos,
-                        matrizes culturais e gastronomia do estado selecionado.
+                        Toque ou clique em qualquer estado no mapa — ou use os botões de seleção rápida abaixo — para conhecer a geografia, a cultura e os pratos típicos de cada estado.
                     </p>
                 </div>
 
@@ -149,7 +155,7 @@
                         <span class="crop-mark crop-br">+</span>
 
                         <div class="territory-map-header">
-                            <span>Prancha Vetorial D3</span>
+                            <span>Explore o mapa</span>
                             <span id="active-state-tag" style="color: var(--region-accent); font-weight: 700;">NORDESTE
                                 · 9 ESTADOS</span>
                         </div>
@@ -278,12 +284,12 @@
                     <div class="editorial-folio">
                         <span>COZINHAS DE FOGO E MEMÓRIA</span>
                         <div class="scale-ruler">
-                            <span>SABORES DE ORIGEM</span>
+                            <span>PRATOS E TRADIÇÕES</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
                         <span>PATRIMÔNIO IMATERIAL</span>
                     </div>
-                    <span class="editorial-kicker" style="color: var(--region-accent);">Cozinha Nordestina</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Pratos e tradições</span>
                     <h2 class="section-main-title editorial-title-offset">Pratos Típicos e <em>Saberes Ancestrais</em>
                     </h2>
                     <p class="section-lead-text">
@@ -351,14 +357,14 @@
             <div class="container">
                 <div class="section-header-editorial">
                     <div class="editorial-folio">
-                        <span>DOSSIÊ GEOGRÁFICO · VOL. 02</span>
+                        <span>CONHEÇA O TERRITÓRIO</span>
                         <div class="scale-ruler">
                             <span>BACIA DO SÃO FRANCISCO</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
                         <span>BIOMA CAATINGA</span>
                     </div>
-                    <span class="editorial-kicker" style="color: var(--region-accent);">Território & Ecossistemas</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Conheça o território</span>
                     <h2 class="section-main-title editorial-title-offset">O Velho Chico, a Caatinga e as <em>Rotas do
                             Semiárido</em></h2>
                 </div>
@@ -395,12 +401,145 @@
             </div>
         </section>
 
+        <!-- 6.5 DOSSIÊ AMBIENTAL: TERRA, TECNOLOGIA & FUTURO (NORDESTE) -->
+        <section id="sustentabilidade" class="section-padding env-dossier-section" aria-labelledby="env-dossier-title-nordeste">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>DOSSIÊ AMBIENTAL · VOL. 02</span>
+                        <div class="scale-ruler">
+                            <span>TERRA, TECNOLOGIA &amp; FUTURO</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>CADERNO NORDESTINO</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">TERRA, TECNOLOGIA &amp; FUTURO</span>
+                    <h2 class="section-main-title editorial-title-offset" id="env-dossier-title-nordeste">Ventos Alísios, Sol do Sertão e a <em>Ciência da Convivência</em></h2>
+                </div>
+
+                <div class="env-dossier-spread">
+                    <!-- Coluna Introdutória Editorial -->
+                    <aside class="env-dossier-intro-col">
+                        <span class="env-dossier-badge">REPORTAGEM ESPECIAL · NORDESTE</span>
+                        <p class="env-dossier-lead">
+                            Onde antes se via apenas escassez hídrica, a ciência contemporânea e a sabedoria sertaneja revelam uma das matrizes energéticas e tecnológicas mais estratégicas do hemisfério sul.
+                        </p>
+                        <p class="env-dossier-lead">
+                            Dos parques eólicos e solares apoiados pelo FDNE às pesquisas do CETENE com hidrogênio solar e células de perovskita, passando pela convivência produtiva com o Semiárido, explore quatro reportagens sobre o futuro sustentável do Nordeste.
+                        </p>
+
+                        <figure class="env-dossier-photo-frame">
+                            <img src="../assets/img/nordeste/Rendeiras_artesãos_card.webp" alt="Trabalho artesanal e território solar do Nordeste" loading="lazy">
+                            <figcaption class="env-dossier-photo-caption">
+                                <span>Litoral &amp; Sertão Produtivo</span>
+                                <span>08°03′S · 34°52′W</span>
+                            </figcaption>
+                        </figure>
+                    </aside>
+
+                    <!-- Lista Editorial Interativa (4 Matérias) -->
+                    <div class="env-editorial-index">
+                        <div class="env-editorial-index-header">
+                            <span class="env-index-label">ÍNDICE DO DOSSIÊ · 04 MATÉRIAS INTERATIVAS</span>
+                            <span class="env-index-hint">CLIQUE EM UMA MATÉRIA PARA LER A REPORTAGEM COMPLETA</span>
+                        </div>
+
+                        <div class="env-editorial-list" role="list">
+                            <!-- 01 -->
+                            <button type="button" class="env-editorial-row" data-env-region="nordeste" data-env-theme="energia-limpa" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">01</span>
+                                    <span class="env-row-cat">Energia limpa</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">TRANSIÇÃO ENERGÉTICA &amp; PESQUISA AVANÇADA</div>
+                                    <h3 class="env-row-title">Ventos, Sol e Hidrogênio Solar: A Vanguarda Energética do Nordeste</h3>
+                                    <p class="env-row-excerpt">O impacto de R$ 2,6 bilhões do FDNE em parques renováveis e as pesquisas do CETENE com dissulfeto de molibdênio e perovskita para hidrogênio verde.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">FDNE / MIDR</span>
+                                        <span class="env-row-tag">Hidrogênio Solar</span>
+                                        <span class="env-row-tag">CETENE / MCTI</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+
+                            <!-- 02 -->
+                            <button type="button" class="env-editorial-row" data-env-region="nordeste" data-env-theme="tecnologia-verde" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">02</span>
+                                    <span class="env-row-cat">Tecnologia verde</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">CONVIVÊNCIA COM O SEMIÁRIDO</div>
+                                    <h3 class="env-row-title">Engenharia Hídrica Social, Barragens Subterrâneas e Irrigação de Precisão</h3>
+                                    <p class="env-row-excerpt">Como tecnologias sociais de captação de água da chuva, reuso agrícola e gotejamento transformam a produção de alimentos na Caatinga.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">Barragens Subterrâneas</span>
+                                        <span class="env-row-tag">Gotejamento</span>
+                                        <span class="env-row-tag">Embrapa Semiárido</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+
+                            <!-- 03 -->
+                            <button type="button" class="env-editorial-row" data-env-region="nordeste" data-env-theme="residuos-reuso" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">03</span>
+                                    <span class="env-row-cat">Resíduos e reuso</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">RECICLAGEM &amp; BIOMASSA REGIONAL</div>
+                                    <h3 class="env-row-title">Do Coco Verde ao Sisal: Gestão de Resíduos e Reaproveitamento no Nordeste</h3>
+                                    <p class="env-row-excerpt">O panorama regional da coleta seletiva segundo o SINIR e o aproveitamento de fibras de coco, sisal e caju para compostagem e bioinsumos.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">SINIR / MMA</span>
+                                        <span class="env-row-tag">Fibra de Coco &amp; Sisal</span>
+                                        <span class="env-row-tag">Compostagem</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+
+                            <!-- 04 -->
+                            <button type="button" class="env-editorial-row" data-env-region="nordeste" data-env-theme="clima-territorio" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">04</span>
+                                    <span class="env-row-cat">Clima e território</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">CAATINGA, AÇUDES &amp; EL NIÑO</div>
+                                    <h3 class="env-row-title">Secas Prolongadas, El Niño e a Proteção dos Solos da Caatinga</h3>
+                                    <p class="env-row-excerpt">Os efeitos da variabilidade climática do Pacífico e do Atlântico sobre os reservatórios do sertão e o combate às áreas suscetíveis à desertificação.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">El Niño / INPE</span>
+                                        <span class="env-row-tag">Segurança Hídrica</span>
+                                        <span class="env-row-tag">CEMADEN</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 7. DESPACHOS & PANORAMA CULTURAL -->
         <section id="panorama" class="section-padding bg-offwhite"
             style="border-top: 1px solid var(--color-border-light);">
             <div class="container">
                 <div class="section-header-editorial">
-                    <span class="editorial-kicker" style="color: var(--region-accent);">PANORAMA REGIONAL</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Notícias da região</span>
                     <h2 class="section-main-title editorial-title-offset">Notícias do <em>Nordeste</em></h2>
                 </div>
 
@@ -437,41 +576,41 @@
             </div>
         </section>
 
-        <!-- 8. OUTROS CADERNOS REGIONAIS -->
+        <!-- 8. OUTRAS REGIÕES -->
         <section class="region-switcher-section">
             <div class="container">
                 <div class="section-header-editorial" style="margin-bottom: 2rem;">
-                    <span class="editorial-kicker">BIBLIOTECA DE CAMPO</span>
-                    <h2 class="section-main-title editorial-title-offset">Explorar Outros <em>Cadernos</em></h2>
+                    <span class="editorial-kicker">OUTRAS REGIÕES</span>
+                    <h2 class="section-main-title editorial-title-offset">Conheça Outras <em>Regiões</em></h2>
                 </div>
 
                 <div class="region-switcher-grid">
                     <a href="norte.html" class="region-switcher-card" style="--card-accent: #2A6B45;">
-                        <span class="region-switcher-num">CADERNO 01</span>
+                        <span class="region-switcher-num">REGIÃO 01</span>
                         <h4 class="region-switcher-title">Norte</h4>
                         <span class="region-switcher-tag">Amazônia, Rios & Bacia Viva</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
 
                     <a href="centro-oeste.html" class="region-switcher-card" style="--card-accent: #B8532F;">
-                        <span class="region-switcher-num">CADERNO 03</span>
+                        <span class="region-switcher-num">REGIÃO 03</span>
                         <h4 class="region-switcher-title">Centro-Oeste</h4>
                         <span class="region-switcher-tag">Planalto, Pantanal & Viola</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
 
                     <a href="sudeste.html" class="region-switcher-card" style="--card-accent: #1E3A63;">
-                        <span class="region-switcher-num">CADERNO 04</span>
+                        <span class="region-switcher-num">REGIÃO 04</span>
                         <h4 class="region-switcher-title">Sudeste</h4>
                         <span class="region-switcher-tag">Barroco, Montanhas & Metrópole</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
 
                     <a href="sul.html" class="region-switcher-card" style="--card-accent: #6B538C;">
-                        <span class="region-switcher-num">CADERNO 05</span>
+                        <span class="region-switcher-num">REGIÃO 05</span>
                         <h4 class="region-switcher-title">Sul</h4>
                         <span class="region-switcher-tag">Coxilhas, Araucárias & Fogo de Chão</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
                 </div>
             </div>
@@ -495,9 +634,68 @@
         </div>
     </footer>
 
+    <!-- Modal Editorial Reutilizável: Dossiê Terra, Tecnologia & Futuro -->
+    <div class="editorial-modal-backdrop env-modal-backdrop" id="env-dossier-modal" role="dialog" aria-modal="true" aria-labelledby="env-modal-title" aria-describedby="env-modal-lead" aria-hidden="true">
+        <div class="editorial-modal-content env-dossier-modal-card" role="document">
+            <div class="env-modal-topbar">
+                <div class="env-modal-topbar-meta">
+                    <span class="env-modal-cat-pill" id="env-modal-cat-pill">01 — Energia limpa</span>
+                    <span class="env-modal-region-tag" id="env-modal-region-tag">CADERNO 02 · REGIÃO NORDESTE</span>
+                </div>
+                <button type="button" class="modal-close-btn env-modal-close-btn" data-env-modal-close aria-label="Fechar reportagem">
+                    <span aria-hidden="true">✕</span> Fechar [ESC]
+                </button>
+            </div>
+
+            <div class="env-modal-scroll-area">
+                <header class="env-modal-article-header">
+                    <span class="modal-kicker env-modal-kicker-line" id="env-modal-kicker">DOSSIÊ AMBIENTAL</span>
+                    <h2 class="modal-title env-modal-main-title" id="env-modal-title">Título da Matéria</h2>
+                    <p class="env-modal-lead" id="env-modal-lead"></p>
+                </header>
+
+                <figure class="env-modal-figure" id="env-modal-figure">
+                    <img id="env-modal-img" src="" alt="" loading="lazy">
+                    <figcaption class="env-modal-figcaption">
+                        <span id="env-modal-caption-text"></span>
+                        <span id="env-modal-caption-coord"></span>
+                    </figcaption>
+                </figure>
+
+                <div class="env-modal-sections-grid">
+                    <section class="env-modal-block" aria-labelledby="env-sec-pesquisa">
+                        <h3 class="modal-section-title" id="env-sec-pesquisa">01 / Desenvolvimento da Pesquisa &amp; Evidências</h3>
+                        <div id="env-modal-research"></div>
+                    </section>
+
+                    <section class="env-modal-block" aria-labelledby="env-sec-territorio">
+                        <h3 class="modal-section-title" id="env-sec-territorio">02 / Relação com o Território e a Região</h3>
+                        <div id="env-modal-regional"></div>
+                    </section>
+
+                    <section class="env-modal-block env-modal-impact-box" aria-labelledby="env-sec-impactos">
+                        <h3 class="modal-section-title" id="env-sec-impactos">03 / Oportunidades, Desafios e Impactos Relevantes</h3>
+                        <div id="env-modal-impacts"></div>
+                    </section>
+                </div>
+
+                <footer class="env-modal-sources-box" aria-labelledby="env-sec-fontes">
+                    <h3 class="env-modal-sources-title" id="env-sec-fontes">Fontes Consultadas &amp; Referências Oficiais</h3>
+                    <ul class="env-modal-sources-list" id="env-modal-sources-list"></ul>
+                </footer>
+
+                <div class="env-modal-footer-bar">
+                    <span class="env-modal-footer-note">BRASIL IN CENA · DOSSIÊ TERRA, TECNOLOGIA &amp; FUTURO</span>
+                    <button type="button" class="env-modal-bottom-close" data-env-modal-close>Fechar Dossiê ✕</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="../js/regionMap.js?v=11.0"></script>
+    <script src="../js/regionMap.js?v=16.0"></script>
+    <script src="../js/sustentabilidade.js?v=16.0"></script>
     <script>
         const stateDataNordeste = {
             Bahia: { code: "UF · BA", capital: "Salvador", bio: "Maior litoral do Brasil, combinando costa tropical com o Sertão da Caatinga e a Chapada Diamantina.", cult: "Samba de Roda do Recôncavo, Afoxé Filhos de Gandhy, Lavagem do Bonfim, Irmandade da Boa Morte.", food: "Acarajé, Vatapá, Caruru, Moqueca Baiana com dendê e leite de coco." },

@@ -97,6 +97,14 @@
                 .attr('class', 'map-state-path')
                 .attr('data-state', d => d.properties.name)
                 .attr('data-region', d => STATE_REGION_MAP[d.properties.name] || 'norte')
+                .attr('tabindex', '0')
+                .attr('role', 'button')
+                .attr('aria-label', d => {
+                    const stateName = d.properties.name;
+                    const sigla = STATE_SIGLAS[stateName] || '';
+                    const regKey = (STATE_REGION_MAP[stateName] || 'norte').replace('_', '-');
+                    return `Estado ${stateName} (${sigla}), Região ${regKey}`;
+                })
                 .style('fill', d => {
                     const reg = STATE_REGION_MAP[d.properties.name] || 'norte';
                     return REGION_COLORS[reg] || '#2A6B45';
@@ -157,6 +165,14 @@
                     const stateName = d.properties.name;
                     const regKey = STATE_REGION_MAP[stateName] || 'norte';
                     highlightRegion(regKey, stateName);
+                })
+                .on('keydown', function (event, d) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        const stateName = d.properties.name;
+                        const regKey = STATE_REGION_MAP[stateName] || 'norte';
+                        highlightRegion(regKey, stateName);
+                    }
                 });
 
             // Rótulos de Siglas dos Estados (Space Grotesk, tipografia editorial moderna)
@@ -201,6 +217,12 @@
                     window.updateRegionPreview(mappedId);
                 }
 
+                // Manter chip clicado sincronizado
+                document.querySelectorAll('.territory-chip-btn, .hud-chip').forEach(btn => {
+                    const btnReg = btn.dataset.region ? btn.dataset.region.replace('-', '_') : '';
+                    btn.classList.toggle('active', btnReg === normKey);
+                });
+
                 if (stateIndicator) {
                     if (stateFocusName) {
                         stateIndicator.textContent = stateFocusName.toUpperCase();
@@ -214,16 +236,6 @@
 
             function highlightRegion(regKey, stateName) {
                 window.highlightBrazilRegion(regKey, stateName);
-
-                // Sincronizar botões de chip
-                document.querySelectorAll('.territory-chip-btn, .hud-chip').forEach(btn => {
-                    const btnReg = btn.dataset.region ? btn.dataset.region.replace('-', '_') : '';
-                    if (btnReg === regKey.replace('-', '_')) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
             }
 
             // Selecionar todos os chips

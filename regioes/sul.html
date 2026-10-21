@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/main.css?v=11.0">
+    <link rel="stylesheet" href="../css/main.css?v=16.0">
     <style>
         :root { --region-accent: #6B538C; }
     </style>
@@ -28,14 +28,21 @@
                     <span class="brand-sub">Revista Cultural</span>
                 </div>
             </a>
-            <nav class="site-nav">
+            <nav class="site-nav" id="site-nav">
                 <a href="../index.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;">← Voltar ao Brasil</a>
                 <a href="#mapa-estados" class="nav-link">Mapa<sup class="nav-sup">03</sup></a>
                 <a href="#cultura" class="nav-link">Culturas<sup class="nav-sup">04</sup></a>
                 <a href="#gastronomia" class="nav-link">Cozinhas<sup class="nav-sup">04</sup></a>
                 <a href="#territorio" class="nav-link">Território</a>
+                <a href="#sustentabilidade" class="nav-link">Futuro<sup class="nav-sup">04</sup></a>
                 <a href="#panorama" class="nav-link">Notícias</a>
             </nav>
+            <div class="header-mobile-actions">
+                <a href="../index.html" class="nav-back-pill-mobile" aria-label="Voltar à página inicial">← Brasil</a>
+                <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="site-nav">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -113,17 +120,17 @@
             <div class="container">
                 <div class="section-header-editorial">
                     <div class="editorial-folio">
-                        <span>PRANCHA CARTOGRÁFICA · D3.JS</span>
+                        <span>MAPA DOS ESTADOS</span>
                         <div class="scale-ruler">
                             <span>ESCALA 1:50.000</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
-                        <span>GEOJSON IBGE OFICIAL</span>
+                        <span>DADOS DO IBGE</span>
                     </div>
-                    <span class="editorial-kicker" style="color: var(--region-accent);">Cartografia Interativa</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Explore o mapa</span>
                     <h2 class="section-main-title editorial-title-offset">Os Três Estados do <em>Sul</em></h2>
                     <p class="section-lead-text">
-                        Clique ou passe o cursor sobre qualquer estado para desdobrar a ficha técnica territorial, biomas subtropicais e gastronomia de inverno.
+                        Toque ou clique em qualquer estado no mapa — ou use os botões de seleção rápida abaixo — para conhecer a geografia, a cultura e os pratos típicos de cada estado.
                     </p>
                 </div>
 
@@ -136,7 +143,7 @@
                         <span class="crop-mark crop-br">+</span>
 
                         <div class="territory-map-header">
-                            <span>Prancha Vetorial D3</span>
+                            <span>Explore o mapa</span>
                             <span id="active-state-tag" style="color: var(--region-accent); font-weight: 700;">SUL · 3 ESTADOS</span>
                         </div>
 
@@ -245,12 +252,12 @@
                     <div class="editorial-folio">
                         <span>FOGO DE CHÃO E COZINHA DE INVERNO</span>
                         <div class="scale-ruler">
-                            <span>SABORES DE ORIGEM</span>
+                            <span>PRATOS E TRADIÇÕES</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
                         <span>PATRIMÔNIO IMATERIAL</span>
                     </div>
-                    <span class="editorial-kicker" style="color: var(--region-accent);">Cozinha Sulista</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Pratos e tradições</span>
                     <h2 class="section-main-title editorial-title-offset">Pratos Típicos e <em>Cozinhas de Fogo Lento</em></h2>
                     <p class="section-lead-text">
                         O arroz carreteiro das tropas, as cucas doces alemãs e o sagu perfumado de vinho tinto da serra.
@@ -310,14 +317,14 @@
             <div class="container">
                 <div class="section-header-editorial">
                     <div class="editorial-folio">
-                        <span>DOSSIÊ GEOGRÁFICO · VOL. 05</span>
+                        <span>CONHEÇA O TERRITÓRIO</span>
                         <div class="scale-ruler">
                             <span>CAMPOS DE CIMA DA SERRA</span>
                             <span class="scale-ruler-bar"></span>
                         </div>
                         <span>BIOMA PAMPA E ARAUCÁRIAS</span>
                     </div>
-                    <span class="editorial-kicker" style="color: var(--region-accent);">Território & Clima Subtropical</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Conheça o território</span>
                     <h2 class="section-main-title editorial-title-offset">Pampas, Cânions de Pedra e <em>Pinhais de Altitude</em></h2>
                 </div>
 
@@ -347,11 +354,144 @@
             </div>
         </section>
 
+        <!-- 6.5 DOSSIÊ AMBIENTAL: TERRA, TECNOLOGIA & FUTURO (SUL) -->
+        <section id="sustentabilidade" class="section-padding env-dossier-section" aria-labelledby="env-dossier-title-sul">
+            <div class="container">
+                <div class="section-header-editorial">
+                    <div class="editorial-folio">
+                        <span>DOSSIÊ AMBIENTAL · VOL. 05</span>
+                        <div class="scale-ruler">
+                            <span>TERRA, TECNOLOGIA &amp; FUTURO</span>
+                            <span class="scale-ruler-bar"></span>
+                        </div>
+                        <span>CADERNO MERIDIONAL</span>
+                    </div>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">TERRA, TECNOLOGIA &amp; FUTURO</span>
+                    <h2 class="section-main-title editorial-title-offset" id="env-dossier-title-sul">Agroenergia Cooperativa, Ciclo Orgânico e <em>Resiliência Subtropical</em></h2>
+                </div>
+
+                <div class="env-dossier-spread">
+                    <!-- Coluna Introdutória Editorial -->
+                    <aside class="env-dossier-intro-col">
+                        <span class="env-dossier-badge">REPORTAGEM ESPECIAL · SUL</span>
+                        <p class="env-dossier-lead">
+                            Nas paisagens subtropicais de araucárias, vales fluviais e coxilhas do Pampa, a força do cooperativismo rural e da ciência ambiental transforma passivos orgânicos em energia limpa e proteção das águas.
+                        </p>
+                        <p class="env-dossier-lead">
+                            De programas estaduais como o RenovaPR e o uso de biodigestores na agricultura familiar até os mais altos índices de coleta seletiva do país e a adaptação a chuvas intensas e enchentes, explore quatro reportagens sobre a Região Sul.
+                        </p>
+
+                        <figure class="env-dossier-photo-frame">
+                            <img src="../assets/img/sul/hero_sul.webp" alt="Paisagem subtropical de araucárias e campos da Região Sul" loading="lazy">
+                            <figcaption class="env-dossier-photo-caption">
+                                <span>Planalto Meridional &amp; Bacias do Sul</span>
+                                <span>25°25′S · 49°16′W</span>
+                            </figcaption>
+                        </figure>
+                    </aside>
+
+                    <!-- Lista Editorial Interativa (4 Matérias) -->
+                    <div class="env-editorial-index">
+                        <div class="env-editorial-index-header">
+                            <span class="env-index-label">ÍNDICE DO DOSSIÊ · 04 MATÉRIAS INTERATIVAS</span>
+                            <span class="env-index-hint">CLIQUE EM UMA MATÉRIA PARA LER A REPORTAGEM COMPLETA</span>
+                        </div>
+
+                        <div class="env-editorial-list" role="list">
+                            <!-- 01 -->
+                            <button type="button" class="env-editorial-row" data-env-region="sul" data-env-theme="energia-limpa" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">01</span>
+                                    <span class="env-row-cat">Energia limpa</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">COOPERATIVISMO &amp; TRANSIÇÃO ENERGÉTICA</div>
+                                    <h3 class="env-row-title">Biogás, Solar e Força Cooperativa: A Geração Distribuída e o Programa RenovaPR</h3>
+                                    <p class="env-row-excerpt">Como propriedades rurais e cooperativas do Paraná, Santa Catarina e Rio Grande do Sul produzem eletricidade e biometano a partir do sol e da biomassa.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">RenovaPR</span>
+                                        <span class="env-row-tag">Biogás &amp; Solar</span>
+                                        <span class="env-row-tag">IDR-Paraná / EPE</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+
+                            <!-- 02 -->
+                            <button type="button" class="env-editorial-row" data-env-region="sul" data-env-theme="tecnologia-verde" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">02</span>
+                                    <span class="env-row-cat">Tecnologia verde</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">SANEAMENTO RURAL &amp; CONSERVAÇÃO DO SOLO</div>
+                                    <h3 class="env-row-title">Biodigestores Automatizados, Plantio Direto na Palha e Sensores Agrometeorológicos</h3>
+                                    <p class="env-row-excerpt">Tecnologias desenvolvidas pela Embrapa Suínos e Aves e redes agrometeorológicas que protegem bacias hidrográficas e evitam a erosão em encostas.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">Biodigestores</span>
+                                        <span class="env-row-tag">Plantio Direto</span>
+                                        <span class="env-row-tag">Embrapa</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+
+                            <!-- 03 -->
+                            <button type="button" class="env-editorial-row" data-env-region="sul" data-env-theme="residuos-reuso" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">03</span>
+                                    <span class="env-row-cat">Resíduos e reuso</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">LIDERANÇA EM COLETA SELETIVA &amp; COMPOSTAGEM</div>
+                                    <h3 class="env-row-title">Referência em Coleta Seletiva: Reciclagem Urbana, Compostagem e Ciclo Orgânico</h3>
+                                    <p class="env-row-excerpt">Com mais de 90% dos municípios com iniciativas de coleta seletiva segundo o SINIR, a Região Sul avança na reciclagem e na compostagem acelerada.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">90,6% Coleta Seletiva</span>
+                                        <span class="env-row-tag">SINIR / MMA</span>
+                                        <span class="env-row-tag">Compostagem</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+
+                            <!-- 04 -->
+                            <button type="button" class="env-editorial-row" data-env-region="sul" data-env-theme="clima-territorio" aria-haspopup="dialog">
+                                <div class="env-row-num-wrap">
+                                    <span class="env-row-num">04</span>
+                                    <span class="env-row-cat">Clima e território</span>
+                                </div>
+                                <div class="env-row-body">
+                                    <div class="env-row-kicker">BACIAS FLUVIAIS, EL NIÑO &amp; PREVENÇÃO</div>
+                                    <h3 class="env-row-title">Chuvas Intensas, El Niño e Prevenção de Enchentes nas Bacias Hidrográficas do Sul</h3>
+                                    <p class="env-row-excerpt">A influência do El Niño e de frentes frias sobre o excesso de chuvas no Sul e a importância de matas ciliares e alertas precoces contra inundações.</p>
+                                    <div class="env-row-tags">
+                                        <span class="env-row-tag">El Niño / INPE</span>
+                                        <span class="env-row-tag">Prevenção de Enchentes</span>
+                                        <span class="env-row-tag">CEMADEN</span>
+                                    </div>
+                                </div>
+                                <div class="env-row-action">
+                                    <span class="env-row-cta-btn">Ler matéria <span class="env-row-cta-arrow" aria-hidden="true">→</span></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 7. DESPACHOS & PANORAMA CULTURAL -->
         <section id="panorama" class="section-padding bg-offwhite" style="border-top: 1px solid var(--color-border-light);">
             <div class="container">
                 <div class="section-header-editorial">
-                    <span class="editorial-kicker" style="color: var(--region-accent);">PANORAMA REGIONAL</span>
+                    <span class="editorial-kicker" style="color: var(--region-accent);">Notícias da região</span>
                     <h2 class="section-main-title editorial-title-offset">Notícias do <em>Sul</em></h2>
                 </div>
 
@@ -383,41 +523,41 @@
             </div>
         </section>
 
-        <!-- 8. OUTROS CADERNOS REGIONAIS -->
+        <!-- 8. OUTRAS REGIÕES -->
         <section class="region-switcher-section">
             <div class="container">
                 <div class="section-header-editorial" style="margin-bottom: 2rem;">
-                    <span class="editorial-kicker">BIBLIOTECA DE CAMPO</span>
-                    <h2 class="section-main-title editorial-title-offset">Explorar Outros <em>Cadernos</em></h2>
+                    <span class="editorial-kicker">OUTRAS REGIÕES</span>
+                    <h2 class="section-main-title editorial-title-offset">Conheça Outras <em>Regiões</em></h2>
                 </div>
 
                 <div class="region-switcher-grid">
                     <a href="norte.html" class="region-switcher-card" style="--card-accent: #2A6B45;">
-                        <span class="region-switcher-num">CADERNO 01</span>
+                        <span class="region-switcher-num">REGIÃO 01</span>
                         <h4 class="region-switcher-title">Norte</h4>
                         <span class="region-switcher-tag">Amazônia, Rios & Bacia Viva</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
 
                     <a href="nordeste.html" class="region-switcher-card" style="--card-accent: #C47D2B;">
-                        <span class="region-switcher-num">CADERNO 02</span>
+                        <span class="region-switcher-num">REGIÃO 02</span>
                         <h4 class="region-switcher-title">Nordeste</h4>
                         <span class="region-switcher-tag">Mar, Sertão & Resistência Sonora</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
 
                     <a href="centro-oeste.html" class="region-switcher-card" style="--card-accent: #B8532F;">
-                        <span class="region-switcher-num">CADERNO 03</span>
+                        <span class="region-switcher-num">REGIÃO 03</span>
                         <h4 class="region-switcher-title">Centro-Oeste</h4>
                         <span class="region-switcher-tag">Planalto, Pantanal & Viola</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
 
                     <a href="sudeste.html" class="region-switcher-card" style="--card-accent: #1E3A63;">
-                        <span class="region-switcher-num">CADERNO 04</span>
+                        <span class="region-switcher-num">REGIÃO 04</span>
                         <h4 class="region-switcher-title">Sudeste</h4>
                         <span class="region-switcher-tag">Barroco, Montanhas & Metrópole</span>
-                        <span class="region-switcher-cta">Abrir Caderno →</span>
+                        <span class="region-switcher-cta">Explorar região →</span>
                     </a>
                 </div>
             </div>
@@ -440,9 +580,68 @@
         </div>
     </footer>
 
+    <!-- Modal Editorial Reutilizável: Dossiê Terra, Tecnologia & Futuro -->
+    <div class="editorial-modal-backdrop env-modal-backdrop" id="env-dossier-modal" role="dialog" aria-modal="true" aria-labelledby="env-modal-title" aria-describedby="env-modal-lead" aria-hidden="true">
+        <div class="editorial-modal-content env-dossier-modal-card" role="document">
+            <div class="env-modal-topbar">
+                <div class="env-modal-topbar-meta">
+                    <span class="env-modal-cat-pill" id="env-modal-cat-pill">01 — Energia limpa</span>
+                    <span class="env-modal-region-tag" id="env-modal-region-tag">CADERNO 05 · REGIÃO SUL</span>
+                </div>
+                <button type="button" class="modal-close-btn env-modal-close-btn" data-env-modal-close aria-label="Fechar reportagem">
+                    <span aria-hidden="true">✕</span> Fechar [ESC]
+                </button>
+            </div>
+
+            <div class="env-modal-scroll-area">
+                <header class="env-modal-article-header">
+                    <span class="modal-kicker env-modal-kicker-line" id="env-modal-kicker">DOSSIÊ AMBIENTAL</span>
+                    <h2 class="modal-title env-modal-main-title" id="env-modal-title">Título da Matéria</h2>
+                    <p class="env-modal-lead" id="env-modal-lead"></p>
+                </header>
+
+                <figure class="env-modal-figure" id="env-modal-figure">
+                    <img id="env-modal-img" src="" alt="" loading="lazy">
+                    <figcaption class="env-modal-figcaption">
+                        <span id="env-modal-caption-text"></span>
+                        <span id="env-modal-caption-coord"></span>
+                    </figcaption>
+                </figure>
+
+                <div class="env-modal-sections-grid">
+                    <section class="env-modal-block" aria-labelledby="env-sec-pesquisa">
+                        <h3 class="modal-section-title" id="env-sec-pesquisa">01 / Desenvolvimento da Pesquisa &amp; Evidências</h3>
+                        <div id="env-modal-research"></div>
+                    </section>
+
+                    <section class="env-modal-block" aria-labelledby="env-sec-territorio">
+                        <h3 class="modal-section-title" id="env-sec-territorio">02 / Relação com o Território e a Região</h3>
+                        <div id="env-modal-regional"></div>
+                    </section>
+
+                    <section class="env-modal-block env-modal-impact-box" aria-labelledby="env-sec-impactos">
+                        <h3 class="modal-section-title" id="env-sec-impactos">03 / Oportunidades, Desafios e Impactos Relevantes</h3>
+                        <div id="env-modal-impacts"></div>
+                    </section>
+                </div>
+
+                <footer class="env-modal-sources-box" aria-labelledby="env-sec-fontes">
+                    <h3 class="env-modal-sources-title" id="env-sec-fontes">Fontes Consultadas &amp; Referências Oficiais</h3>
+                    <ul class="env-modal-sources-list" id="env-modal-sources-list"></ul>
+                </footer>
+
+                <div class="env-modal-footer-bar">
+                    <span class="env-modal-footer-note">BRASIL IN CENA · DOSSIÊ TERRA, TECNOLOGIA &amp; FUTURO</span>
+                    <button type="button" class="env-modal-bottom-close" data-env-modal-close>Fechar Dossiê ✕</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Dependências D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="../js/regionMap.js?v=11.0"></script>
+    <script src="../js/regionMap.js?v=16.0"></script>
+    <script src="../js/sustentabilidade.js?v=16.0"></script>
     <script>
         const stateDataSul = {
             "Rio Grande do Sul": { code: "UF · RS", capital: "Porto Alegre", bio: "Campos sulinos abertos dos Pampas, cânions profundos de Aparados da Serra e serras gaúchas de vinhedos.", cult: "Tradicionalismo Gaúcho, dança da chula, fandangos sulinos, Semana Farroupilha.", food: "Churrasco no fogo de chão com sal grosso, Chimarrão amargo na cuia, Galeto al primo canto." },
