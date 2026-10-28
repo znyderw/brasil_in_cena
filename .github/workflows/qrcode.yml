@@ -1,0 +1,69 @@
+name: Cartaz QR Code (Apresentação & Download)
+
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'URL de destino do QR Code'
+        required: true
+        default: 'https://znyderw.github.io/brasil_in_cena/'
+        type: string
+  push:
+    branches:
+      - main
+    paths:
+      - 'qrcode.html'
+      - '.github/workflows/qrcode.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-qrcode-poster:
+    name: Gerar Cartaz QR Code & Artefato
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar gerador de QR Code (segno)
+        run: pip install segno
+
+      - name: Gerar arquivos SVG e PNG de alta resolução do QR Code
+        env:
+          TARGET_URL: ${{ github.event.inputs.site_url || 'https://znyderw.github.io/brasil_in_cena/' }}
+        run: |
+          mkdir -p dist-qrcode/assets/img dist-qrcode/css
+          cp qrcode.html dist-qrcode/index.html
+          cp css/main.css dist-qrcode/css/main.css
+          cp assets/img/logo.jpg dist-qrcode/assets/img/logo.jpg
+          python - << 'EOF'
+          import os, segno
+          url = os.environ.get("TARGET_URL", "https://znyderw.github.io/brasil_in_cena/")
+          qr = segno.make(url, error='m')
+          qr.save("dist-qrcode/qrcode-brasil-in-cena.svg", scale=20, dark="#06352F", light="#FFFFFF", border=2)
+          qr.save("dist-qrcode/qrcode-brasil-in-cena.png", scale=24, dark="#06352F", light="#FFFFFF", border=2)
+          EOF
+
+      - name: Publicar Resumo na Aba Actions
+        env:
+          TARGET_URL: ${{ github.event.inputs.site_url || 'https://znyderw.github.io/brasil_in_cena/' }}
+        run: |
+          echo "## Cartaz QR Code — Brasil in Cena" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Página de Projeção Direta (oculta dos menus do site):** [https://znyderw.github.io/brasil_in_cena/qrcode.html](https://znyderw.github.io/brasil_in_cena/qrcode.html)" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL codificada no QR Code:** \`${TARGET_URL}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Artefatos gerados para download abaixo:** \`qrcode-brasil-in-cena.png\` (alta resolução para telão/impressão), \`qrcode-brasil-in-cena.svg\` (vetorial) e \`index.html\` (cartaz completo)." >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload do Pacote QR Code (Artefato)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cartaz-qrcode-brasil-in-cena
+          path: dist-qrcode/
+          retention-days: 90
